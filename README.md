@@ -25,3 +25,4 @@
 * Push Notifications
 * Local Storage
 * Location
+* SwiftUI
