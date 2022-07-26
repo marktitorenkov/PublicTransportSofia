@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D6E8FD228902F5A00C6D6B5 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FD128902F5A00C6D6B5 /* FavouritesView.swift */; };
+		4D6E8FD428902F9500C6D6B5 /* StopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FD328902F9500C6D6B5 /* StopsView.swift */; };
+		4D6E8FD628902FA200C6D6B5 /* LinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FD528902FA200C6D6B5 /* LinesView.swift */; };
+		4D6E8FD828902FB900C6D6B5 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FD728902FB900C6D6B5 /* NotificationsView.swift */; };
+		4D6E8FDA2890377700C6D6B5 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FD92890377700C6D6B5 /* Stop.swift */; };
+		4D6E8FDC289038FE00C6D6B5 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FDB289038FE00C6D6B5 /* Coordinate.swift */; };
+		4D6E8FDE28903AB900C6D6B5 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FDD28903AB900C6D6B5 /* Line.swift */; };
+		4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */; };
+		4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FE128903BED00C6D6B5 /* LineType.swift */; };
+		4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */; };
+		4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */; };
+		4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F9288FF15300A545A1 /* MainView.swift */; };
+		4DEDE6FC288FF15500A545A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDE6FB288FF15500A545A1 /* Assets.xcassets */; };
+		4DEDE6FF288FF15500A545A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDE6FE288FF15500A545A1 /* Preview Assets.xcassets */; };
+		4DEDE709288FF15500A545A1 /* PublicTransportSofiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE708288FF15500A545A1 /* PublicTransportSofiaTests.swift */; };
+		4DEDE713288FF15500A545A1 /* PublicTransportSofiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE712288FF15500A545A1 /* PublicTransportSofiaUITests.swift */; };
+		4DEDE715288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE714288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4DEDE705288FF15500A545A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DEDE6EC288FF15300A545A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DEDE6F3288FF15300A545A1;
+			remoteInfo = PublicTransportSofia;
+		};
+		4DEDE70F288FF15500A545A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DEDE6EC288FF15300A545A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DEDE6F3288FF15300A545A1;
+			remoteInfo = PublicTransportSofia;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4D6E8FD128902F5A00C6D6B5 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		4D6E8FD328902F9500C6D6B5 /* StopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsView.swift; sourceTree = "<group>"; };
+		4D6E8FD528902FA200C6D6B5 /* LinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesView.swift; sourceTree = "<group>"; };
+		4D6E8FD728902FB900C6D6B5 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		4D6E8FD92890377700C6D6B5 /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		4D6E8FDB289038FE00C6D6B5 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		4D6E8FDD28903AB900C6D6B5 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineIdentifier.swift; sourceTree = "<group>"; };
+		4D6E8FE128903BED00C6D6B5 /* LineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineType.swift; sourceTree = "<group>"; };
+		4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSchedule.swift; sourceTree = "<group>"; };
+		4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PublicTransportSofia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaApp.swift; sourceTree = "<group>"; };
+		4DEDE6F9288FF15300A545A1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4DEDE6FB288FF15500A545A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DEDE6FE288FF15500A545A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4DEDE704288FF15500A545A1 /* PublicTransportSofiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PublicTransportSofiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DEDE708288FF15500A545A1 /* PublicTransportSofiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaTests.swift; sourceTree = "<group>"; };
+		4DEDE70E288FF15500A545A1 /* PublicTransportSofiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PublicTransportSofiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DEDE712288FF15500A545A1 /* PublicTransportSofiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaUITests.swift; sourceTree = "<group>"; };
+		4DEDE714288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4DEDE6F1288FF15300A545A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEDE701288FF15500A545A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEDE70B288FF15500A545A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D6E8FCD28902BCB00C6D6B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DEDE6F9288FF15300A545A1 /* MainView.swift */,
+				4D6E8FD128902F5A00C6D6B5 /* FavouritesView.swift */,
+				4D6E8FD328902F9500C6D6B5 /* StopsView.swift */,
+				4D6E8FD528902FA200C6D6B5 /* LinesView.swift */,
+				4D6E8FD728902FB900C6D6B5 /* NotificationsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4D6E8FCF28902BE200C6D6B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4D6E8FD92890377700C6D6B5 /* Stop.swift */,
+				4D6E8FDB289038FE00C6D6B5 /* Coordinate.swift */,
+				4D6E8FDD28903AB900C6D6B5 /* Line.swift */,
+				4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */,
+				4D6E8FE128903BED00C6D6B5 /* LineType.swift */,
+				4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4D6E8FD028902BE700C6D6B5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4DEDE6EB288FF15300A545A1 = {
+			isa = PBXGroup;
+			children = (
+				4DEDE6F6288FF15300A545A1 /* PublicTransportSofia */,
+				4DEDE707288FF15500A545A1 /* PublicTransportSofiaTests */,
+				4DEDE711288FF15500A545A1 /* PublicTransportSofiaUITests */,
+				4DEDE6F5288FF15300A545A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4DEDE6F5288FF15300A545A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */,
+				4DEDE704288FF15500A545A1 /* PublicTransportSofiaTests.xctest */,
+				4DEDE70E288FF15500A545A1 /* PublicTransportSofiaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DEDE6F6288FF15300A545A1 /* PublicTransportSofia */ = {
+			isa = PBXGroup;
+			children = (
+				4D6E8FCF28902BE200C6D6B5 /* Models */,
+				4D6E8FD028902BE700C6D6B5 /* ViewModels */,
+				4D6E8FCD28902BCB00C6D6B5 /* Views */,
+				4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */,
+				4DEDE6FB288FF15500A545A1 /* Assets.xcassets */,
+				4DEDE6FD288FF15500A545A1 /* Preview Content */,
+			);
+			path = PublicTransportSofia;
+			sourceTree = "<group>";
+		};
+		4DEDE6FD288FF15500A545A1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4DEDE6FE288FF15500A545A1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4DEDE707288FF15500A545A1 /* PublicTransportSofiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				4DEDE708288FF15500A545A1 /* PublicTransportSofiaTests.swift */,
+			);
+			path = PublicTransportSofiaTests;
+			sourceTree = "<group>";
+		};
+		4DEDE711288FF15500A545A1 /* PublicTransportSofiaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4DEDE712288FF15500A545A1 /* PublicTransportSofiaUITests.swift */,
+				4DEDE714288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift */,
+			);
+			path = PublicTransportSofiaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4DEDE6F3288FF15300A545A1 /* PublicTransportSofia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DEDE718288FF15500A545A1 /* Build configuration list for PBXNativeTarget "PublicTransportSofia" */;
+			buildPhases = (
+				4DEDE6F0288FF15300A545A1 /* Sources */,
+				4DEDE6F1288FF15300A545A1 /* Frameworks */,
+				4DEDE6F2288FF15300A545A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PublicTransportSofia;
+			productName = PublicTransportSofia;
+			productReference = 4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4DEDE703288FF15500A545A1 /* PublicTransportSofiaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DEDE71B288FF15500A545A1 /* Build configuration list for PBXNativeTarget "PublicTransportSofiaTests" */;
+			buildPhases = (
+				4DEDE700288FF15500A545A1 /* Sources */,
+				4DEDE701288FF15500A545A1 /* Frameworks */,
+				4DEDE702288FF15500A545A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4DEDE706288FF15500A545A1 /* PBXTargetDependency */,
+			);
+			name = PublicTransportSofiaTests;
+			productName = PublicTransportSofiaTests;
+			productReference = 4DEDE704288FF15500A545A1 /* PublicTransportSofiaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4DEDE70D288FF15500A545A1 /* PublicTransportSofiaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DEDE71E288FF15500A545A1 /* Build configuration list for PBXNativeTarget "PublicTransportSofiaUITests" */;
+			buildPhases = (
+				4DEDE70A288FF15500A545A1 /* Sources */,
+				4DEDE70B288FF15500A545A1 /* Frameworks */,
+				4DEDE70C288FF15500A545A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4DEDE710288FF15500A545A1 /* PBXTargetDependency */,
+			);
+			name = PublicTransportSofiaUITests;
+			productName = PublicTransportSofiaUITests;
+			productReference = 4DEDE70E288FF15500A545A1 /* PublicTransportSofiaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4DEDE6EC288FF15300A545A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					4DEDE6F3288FF15300A545A1 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					4DEDE703288FF15500A545A1 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 4DEDE6F3288FF15300A545A1;
+					};
+					4DEDE70D288FF15500A545A1 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 4DEDE6F3288FF15300A545A1;
+					};
+				};
+			};
+			buildConfigurationList = 4DEDE6EF288FF15300A545A1 /* Build configuration list for PBXProject "PublicTransportSofia" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4DEDE6EB288FF15300A545A1;
+			productRefGroup = 4DEDE6F5288FF15300A545A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DEDE6F3288FF15300A545A1 /* PublicTransportSofia */,
+				4DEDE703288FF15500A545A1 /* PublicTransportSofiaTests */,
+				4DEDE70D288FF15500A545A1 /* PublicTransportSofiaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DEDE6F2288FF15300A545A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DEDE6FF288FF15500A545A1 /* Preview Assets.xcassets in Resources */,
+				4DEDE6FC288FF15500A545A1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEDE702288FF15500A545A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEDE70C288FF15500A545A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4DEDE6F0288FF15300A545A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D6E8FDA2890377700C6D6B5 /* Stop.swift in Sources */,
+				4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */,
+				4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */,
+				4D6E8FD628902FA200C6D6B5 /* LinesView.swift in Sources */,
+				4D6E8FDC289038FE00C6D6B5 /* Coordinate.swift in Sources */,
+				4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */,
+				4D6E8FD428902F9500C6D6B5 /* StopsView.swift in Sources */,
+				4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */,
+				4D6E8FD228902F5A00C6D6B5 /* FavouritesView.swift in Sources */,
+				4D6E8FDE28903AB900C6D6B5 /* Line.swift in Sources */,
+				4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */,
+				4D6E8FD828902FB900C6D6B5 /* NotificationsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEDE700288FF15500A545A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DEDE709288FF15500A545A1 /* PublicTransportSofiaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEDE70A288FF15500A545A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DEDE715288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift in Sources */,
+				4DEDE713288FF15500A545A1 /* PublicTransportSofiaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4DEDE706288FF15500A545A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DEDE6F3288FF15300A545A1 /* PublicTransportSofia */;
+			targetProxy = 4DEDE705288FF15500A545A1 /* PBXContainerItemProxy */;
+		};
+		4DEDE710288FF15500A545A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DEDE6F3288FF15300A545A1 /* PublicTransportSofia */;
+			targetProxy = 4DEDE70F288FF15500A545A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4DEDE716288FF15500A545A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4DEDE717288FF15500A545A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4DEDE719288FF15500A545A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PublicTransportSofia/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bg.uni-sofia.fmi.PublicTransportSofia";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DEDE71A288FF15500A545A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PublicTransportSofia/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bg.uni-sofia.fmi.PublicTransportSofia";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4DEDE71C288FF15500A545A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bg.uni-sofia.fmi.PublicTransportSofiaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PublicTransportSofia.app/PublicTransportSofia";
+			};
+			name = Debug;
+		};
+		4DEDE71D288FF15500A545A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bg.uni-sofia.fmi.PublicTransportSofiaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PublicTransportSofia.app/PublicTransportSofia";
+			};
+			name = Release;
+		};
+		4DEDE71F288FF15500A545A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bg.uni-sofia.fmi.PublicTransportSofiaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PublicTransportSofia;
+			};
+			name = Debug;
+		};
+		4DEDE720288FF15500A545A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bg.uni-sofia.fmi.PublicTransportSofiaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PublicTransportSofia;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4DEDE6EF288FF15300A545A1 /* Build configuration list for PBXProject "PublicTransportSofia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEDE716288FF15500A545A1 /* Debug */,
+				4DEDE717288FF15500A545A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DEDE718288FF15500A545A1 /* Build configuration list for PBXNativeTarget "PublicTransportSofia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEDE719288FF15500A545A1 /* Debug */,
+				4DEDE71A288FF15500A545A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DEDE71B288FF15500A545A1 /* Build configuration list for PBXNativeTarget "PublicTransportSofiaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEDE71C288FF15500A545A1 /* Debug */,
+				4DEDE71D288FF15500A545A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DEDE71E288FF15500A545A1 /* Build configuration list for PBXNativeTarget "PublicTransportSofiaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEDE71F288FF15500A545A1 /* Debug */,
+				4DEDE720288FF15500A545A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4DEDE6EC288FF15300A545A1 /* Project object */;
+}
