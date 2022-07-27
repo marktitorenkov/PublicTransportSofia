@@ -7,9 +7,18 @@
 
 import Foundation
 
-enum LineType {
+enum LineType : Comparable, CustomStringConvertible {
     case bus
     case metro
     case tram
     case trolley
+    
+    var description: String {
+        switch self {
+        case .bus: return "Bus"
+        case .metro: return "Metro"
+        case .tram: return "Tram"
+        case .trolley: return "Trolley"
+        }
+    }
 }

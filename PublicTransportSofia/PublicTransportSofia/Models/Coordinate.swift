@@ -10,7 +10,7 @@ import Foundation
 struct Coordinate {
     let x: Double;
     let y: Double;
-
+    
     var lon: Double { get { return x } }
     var lat: Double { get { return y } }
 }

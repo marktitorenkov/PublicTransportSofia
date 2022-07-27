@@ -8,6 +8,6 @@
 import Foundation
 
 struct Line: Identifiable {
-    let id: LineType
+    let id: LineIdentifier
     let Stops: [[Stop]]
 }

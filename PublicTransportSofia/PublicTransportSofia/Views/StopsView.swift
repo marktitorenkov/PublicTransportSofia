@@ -11,26 +11,23 @@ struct StopsView: View {
     
     @State private var searchText = ""
     
-    var stops: [Stop] =
-    [Stop(id: "2224", name: "Община младост", coordinate: Coordinate(x: 0, y: 0)),
-     Stop(id: "0012", name: "Kur", coordinate: Coordinate(x: 1, y: 1)),
-     Stop(id: "0001", name: "Кулинарен комбинат Пейфил Последната спирка на 305", coordinate: Coordinate(x: 0, y: 0))
+    var stops: [Stop] = [
+        Stop(id: "2224", name: "Община младост", coordinate: Coordinate(x: 0, y: 0)),
+        Stop(id: "0012", name: "Kur", coordinate: Coordinate(x: 1, y: 1)),
+        Stop(id: "0001", name: "Кулинарен комбинат Пейфил Последната спирка на 305", coordinate: Coordinate(x: 0, y: 0)),
     ]
-    
     
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(searchResults) { stop in
-                        NavigationLink(destination: StopScheduleView(stop: stop)) {
-                            Text("\(stop.name) (\(stop.code))")
-                        }
+            List {
+                ForEach(searchResults) { stop in
+                    NavigationLink(destination: StopScheduleView(stop: stop)) {
+                        Text("\(stop.name) (\(stop.code))")
                     }
                 }
-                .searchable(text: $searchText)
-                .navigationTitle("Stops")
             }
+            .searchable(text: $searchText)
+            .navigationTitle("Stops")
         }
     }
     
@@ -38,10 +35,11 @@ struct StopsView: View {
         if searchText.isEmpty {
             return stops
         } else {
-            return stops.filter { $0.name.contains(searchText) }
+            return stops.filter {
+                $0.name.contains(searchText) || $0.code.contains(searchText)
+            }
         }
     }
-    
 }
 
 struct StopsView_Previews: PreviewProvider {
