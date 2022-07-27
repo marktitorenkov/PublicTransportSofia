@@ -30,6 +30,7 @@ struct LineStopsView: View {
                 }
             }
             .pickerStyle(.segmented)
+            .padding()
             List {
                 ForEach(directonStops) { stop in
                     NavigationLink(destination: StopScheduleView(stop: stop)) {
