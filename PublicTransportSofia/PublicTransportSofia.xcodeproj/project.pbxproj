@@ -24,6 +24,7 @@
 		4DEDE709288FF15500A545A1 /* PublicTransportSofiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE708288FF15500A545A1 /* PublicTransportSofiaTests.swift */; };
 		4DEDE713288FF15500A545A1 /* PublicTransportSofiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE712288FF15500A545A1 /* PublicTransportSofiaUITests.swift */; };
 		4DEDE715288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE714288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift */; };
+		ECF0EEF128916366006CC87F /* StopScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF0EEF028916366006CC87F /* StopScheduleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		4DEDE70E288FF15500A545A1 /* PublicTransportSofiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PublicTransportSofiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEDE712288FF15500A545A1 /* PublicTransportSofiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaUITests.swift; sourceTree = "<group>"; };
 		4DEDE714288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ECF0EEF028916366006CC87F /* StopScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopScheduleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				4D6E8FD328902F9500C6D6B5 /* StopsView.swift */,
 				4D6E8FD528902FA200C6D6B5 /* LinesView.swift */,
 				4D6E8FD728902FB900C6D6B5 /* NotificationsView.swift */,
+				ECF0EEF028916366006CC87F /* StopScheduleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				4D6E8FDC289038FE00C6D6B5 /* Coordinate.swift in Sources */,
 				4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */,
 				4D6E8FD428902F9500C6D6B5 /* StopsView.swift in Sources */,
+				ECF0EEF128916366006CC87F /* StopScheduleView.swift in Sources */,
 				4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */,
 				4D6E8FD228902F5A00C6D6B5 /* FavouritesView.swift in Sources */,
 				4D6E8FDE28903AB900C6D6B5 /* Line.swift in Sources */,
@@ -483,6 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PublicTransportSofia/Preview Content\"";
+				DEVELOPMENT_TEAM = B69T59YF8G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -511,6 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PublicTransportSofia/Preview Content\"";
+				DEVELOPMENT_TEAM = B69T59YF8G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
