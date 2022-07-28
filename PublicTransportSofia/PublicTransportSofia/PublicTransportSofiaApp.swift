@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct PublicTransportSofiaApp: App {
+    let sumcService = SUMCService()
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(sumcService: sumcService)
         }
     }
 }

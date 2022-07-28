@@ -17,6 +17,13 @@
 		4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */; };
 		4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FE128903BED00C6D6B5 /* LineType.swift */; };
 		4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */; };
+		4D769CF528930E80001FDC8B /* SUMCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF428930E80001FDC8B /* SUMCService.swift */; };
+		4D769CF828931379001FDC8B /* JSONRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF728931379001FDC8B /* JSONRoutes.swift */; };
+		4D769CFA28931BF7001FDC8B /* JSONStops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF928931BF7001FDC8B /* JSONStops.swift */; };
+		4D769CFC2893222E001FDC8B /* StopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFB2893222E001FDC8B /* StopsViewModel.swift */; };
+		4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */; };
+		4D769D0028932794001FDC8B /* SUMCServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */; };
+		4D769D0228932BD2001FDC8B /* LinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769D0128932BD2001FDC8B /* LinesViewModel.swift */; };
 		4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8990DF2891C74E00672E63 /* LineStopsView.swift */; };
 		4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */; };
 		4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F9288FF15300A545A1 /* MainView.swift */; };
@@ -56,6 +63,13 @@
 		4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineIdentifier.swift; sourceTree = "<group>"; };
 		4D6E8FE128903BED00C6D6B5 /* LineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineType.swift; sourceTree = "<group>"; };
 		4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSchedule.swift; sourceTree = "<group>"; };
+		4D769CF428930E80001FDC8B /* SUMCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCService.swift; sourceTree = "<group>"; };
+		4D769CF728931379001FDC8B /* JSONRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRoutes.swift; sourceTree = "<group>"; };
+		4D769CF928931BF7001FDC8B /* JSONStops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStops.swift; sourceTree = "<group>"; };
+		4D769CFB2893222E001FDC8B /* StopsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsViewModel.swift; sourceTree = "<group>"; };
+		4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceProtocol.swift; sourceTree = "<group>"; };
+		4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceMock.swift; sourceTree = "<group>"; };
+		4D769D0128932BD2001FDC8B /* LinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesViewModel.swift; sourceTree = "<group>"; };
 		4D8990DF2891C74E00672E63 /* LineStopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsView.swift; sourceTree = "<group>"; };
 		4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PublicTransportSofia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaApp.swift; sourceTree = "<group>"; };
@@ -112,6 +126,7 @@
 		4D6E8FCF28902BE200C6D6B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4D769CF62893136C001FDC8B /* JSON */,
 				4D6E8FD92890377700C6D6B5 /* Stop.swift */,
 				4D6E8FDB289038FE00C6D6B5 /* Coordinate.swift */,
 				4D6E8FDD28903AB900C6D6B5 /* Line.swift */,
@@ -125,8 +140,29 @@
 		4D6E8FD028902BE700C6D6B5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4D769CFB2893222E001FDC8B /* StopsViewModel.swift */,
+				4D769D0128932BD2001FDC8B /* LinesViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4D769CF328930E61001FDC8B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */,
+				4D769CF428930E80001FDC8B /* SUMCService.swift */,
+				4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4D769CF62893136C001FDC8B /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				4D769CF728931379001FDC8B /* JSONRoutes.swift */,
+				4D769CF928931BF7001FDC8B /* JSONStops.swift */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		4DEDE6EB288FF15300A545A1 = {
@@ -152,6 +188,7 @@
 		4DEDE6F6288FF15300A545A1 /* PublicTransportSofia */ = {
 			isa = PBXGroup;
 			children = (
+				4D769CF328930E61001FDC8B /* Services */,
 				4D6E8FCF28902BE200C6D6B5 /* Models */,
 				4D6E8FD028902BE700C6D6B5 /* ViewModels */,
 				4D6E8FCD28902BCB00C6D6B5 /* Views */,
@@ -319,17 +356,24 @@
 			files = (
 				4D6E8FDA2890377700C6D6B5 /* Stop.swift in Sources */,
 				4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */,
+				4D769CF528930E80001FDC8B /* SUMCService.swift in Sources */,
+				4D769D0028932794001FDC8B /* SUMCServiceMock.swift in Sources */,
 				4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */,
 				4D6E8FD628902FA200C6D6B5 /* LinesView.swift in Sources */,
+				4D769CF828931379001FDC8B /* JSONRoutes.swift in Sources */,
 				4D6E8FDC289038FE00C6D6B5 /* Coordinate.swift in Sources */,
 				4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */,
+				4D769D0228932BD2001FDC8B /* LinesViewModel.swift in Sources */,
 				4D6E8FD428902F9500C6D6B5 /* StopsView.swift in Sources */,
 				ECF0EEF128916366006CC87F /* StopScheduleView.swift in Sources */,
 				4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */,
 				4D6E8FD228902F5A00C6D6B5 /* FavouritesView.swift in Sources */,
+				4D769CFC2893222E001FDC8B /* StopsViewModel.swift in Sources */,
 				4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */,
 				4D6E8FDE28903AB900C6D6B5 /* Line.swift in Sources */,
 				4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */,
+				4D769CFA28931BF7001FDC8B /* JSONStops.swift in Sources */,
+				4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */,
 				4D6E8FD828902FB900C6D6B5 /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

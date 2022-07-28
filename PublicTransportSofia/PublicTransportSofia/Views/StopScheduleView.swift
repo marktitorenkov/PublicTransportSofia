@@ -24,6 +24,7 @@ struct StopScheduleView: View {
     var body: some View {
         VStack {
             Text(stop.name)
+                .padding()
                 .multilineTextAlignment(.center)
             List {
                 ForEach(lineSchedules) { schedule in

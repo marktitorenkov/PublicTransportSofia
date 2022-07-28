@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    private let sumcService: SUMCServiceProtocol
+    
+    init(sumcService: SUMCServiceProtocol) {
+        self.sumcService = sumcService
+    }
+    
     var body: some View {
         TabView {
             FavouritesView()
@@ -15,12 +22,12 @@ struct MainView: View {
                     Image(systemName: "star.fill")
                     Text("Favourites")
                 }
-            StopsView()
+            StopsView(sumcService: sumcService)
                 .tabItem {
                     Image(systemName: "train.side.middle.car")
                     Text("Stops")
                 }
-            LinesView()
+            LinesView(sumcService: sumcService)
                 .tabItem {
                     Image(systemName: "bus.fill")
                     Text("Lines")
@@ -31,11 +38,14 @@ struct MainView: View {
                     Text("Notifications")
                 }
         }
+        .task {
+            try? await sumcService.fetchStaticData()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(sumcService: SUMCServiceMock())
     }
 }
