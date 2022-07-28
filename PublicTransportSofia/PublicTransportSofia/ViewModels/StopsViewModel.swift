@@ -22,7 +22,7 @@ class StopsViewModel: ObservableObject {
             return sumcService.getStops()
         } else {
             return sumcService.getStops().filter {
-                $0.name.contains(searchText) || $0.code.contains(searchText)
+                $0.name.localizedCaseInsensitiveContains(searchText) || $0.code.contains(searchText)
             }
         }
     }

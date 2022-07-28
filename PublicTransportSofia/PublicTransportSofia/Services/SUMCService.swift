@@ -28,7 +28,8 @@ class SUMCService: SUMCServiceProtocol {
         
         var stops: [String : Stop] = [:]
         for (code, stopJSON) in stopsJSON {
-            stops[code] = Stop(id: code, name: stopJSON.n, coordinate: Coordinate(x: stopJSON.x, y: stopJSON.y))
+            let name = stopJSON.n.replacingOccurrences(of: "  ", with: " ").trimmingCharacters(in: .whitespacesAndNewlines)
+            stops[code] = Stop(id: code, name: name, coordinate: Coordinate(x: stopJSON.x, y: stopJSON.y))
         }
         self.stops = stops.values.sorted(by: { $0.code.localizedStandardCompare($1.code) == .orderedAscending })
         
