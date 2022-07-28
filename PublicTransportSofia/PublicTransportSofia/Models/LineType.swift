@@ -7,11 +7,15 @@
 
 import Foundation
 
-enum LineType : Comparable, CustomStringConvertible {
+enum LineType : String, Comparable, CustomStringConvertible {
     case bus
     case metro
     case tram
     case trolley
+    
+    static func < (lhs: LineType, rhs: LineType) -> Bool {
+        lhs.rawValue < rhs.rawValue
+    }
     
     var description: String {
         switch self {

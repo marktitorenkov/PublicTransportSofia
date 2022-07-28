@@ -23,7 +23,7 @@ class SUMCService: SUMCServiceProtocol {
         async let (routesDataAsync, _) = URLSession.shared.data(from: URL(string: routesUrl)!)
         
         let (stopsData, routesData) = await (try stopsDataAsync, try routesDataAsync)
-        let routesJson = try JSONDecoder().decode(JSONRoutes.self, from: routesData)
+        let routesJSON = try JSONDecoder().decode(JSONRoutes.self, from: routesData)
         let stopsJSON = try JSONDecoder().decode(JSONStops.self, from: stopsData)
         
         var stops: [String : Stop] = [:]
@@ -33,10 +33,10 @@ class SUMCService: SUMCServiceProtocol {
         self.stops = stops.values.sorted(by: { $0.code.localizedStandardCompare($1.code) == .orderedAscending })
         
         var lines: [Line] = []
-        lines.append(contentsOf: createLinesForType(routes: routesJson.bus, type: .bus, stops: stops))
-        lines.append(contentsOf: createLinesForType(routes: routesJson.subway, type: .metro, stops: stops))
-        lines.append(contentsOf: createLinesForType(routes: routesJson.tram, type: .tram, stops: stops))
-        lines.append(contentsOf: createLinesForType(routes: routesJson.trolley, type: .trolley, stops: stops))
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.bus, type: .bus, stops: stops))
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.subway, type: .metro, stops: stops))
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.tram, type: .tram, stops: stops))
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.trolley, type: .trolley, stops: stops))
         self.lines = lines
     }
     
@@ -59,7 +59,18 @@ class SUMCService: SUMCServiceProtocol {
     }
     
     func fetchSchedule(stopCode: String) async throws -> [LineSchedule] {
-        return []
+        let (timingData, _) = try await URLSession.shared.data(from: URL(string: timingUrl)!)
+        let timingJSON = try JSONDecoder().decode(JSONTiming.self, from: timingData)
+        
+        var lineSchedules: [LineSchedule] = []
+        for lineJSON in timingJSON.lines {
+            var arrivals: [Date] = []
+            for arrivalJSON in lineJSON.arrivals {
+                arrivals.append(DateFormatter().date(from: arrivalJSON.time)!)
+            }
+            lineSchedules.append(LineSchedule(id: LineIdentifier(name: lineJSON.name, type: LineType(rawValue: lineJSON.vehicle_type)!), arrivals: arrivals))
+        }
+        return lineSchedules
     }
     
     func getLines() -> [Line] {

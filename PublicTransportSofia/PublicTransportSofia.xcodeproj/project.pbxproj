@@ -24,6 +24,7 @@
 		4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */; };
 		4D769D0028932794001FDC8B /* SUMCServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */; };
 		4D769D0228932BD2001FDC8B /* LinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769D0128932BD2001FDC8B /* LinesViewModel.swift */; };
+		4D769D042893340E001FDC8B /* JSONTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769D032893340E001FDC8B /* JSONTiming.swift */; };
 		4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8990DF2891C74E00672E63 /* LineStopsView.swift */; };
 		4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */; };
 		4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F9288FF15300A545A1 /* MainView.swift */; };
@@ -70,6 +71,7 @@
 		4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceProtocol.swift; sourceTree = "<group>"; };
 		4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceMock.swift; sourceTree = "<group>"; };
 		4D769D0128932BD2001FDC8B /* LinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesViewModel.swift; sourceTree = "<group>"; };
+		4D769D032893340E001FDC8B /* JSONTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTiming.swift; sourceTree = "<group>"; };
 		4D8990DF2891C74E00672E63 /* LineStopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsView.swift; sourceTree = "<group>"; };
 		4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PublicTransportSofia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaApp.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				4D769CF728931379001FDC8B /* JSONRoutes.swift */,
 				4D769CF928931BF7001FDC8B /* JSONStops.swift */,
+				4D769D032893340E001FDC8B /* JSONTiming.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				4D769CFC2893222E001FDC8B /* StopsViewModel.swift in Sources */,
 				4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */,
 				4D6E8FDE28903AB900C6D6B5 /* Line.swift in Sources */,
+				4D769D042893340E001FDC8B /* JSONTiming.swift in Sources */,
 				4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */,
 				4D769CFA28931BF7001FDC8B /* JSONStops.swift in Sources */,
 				4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */,
