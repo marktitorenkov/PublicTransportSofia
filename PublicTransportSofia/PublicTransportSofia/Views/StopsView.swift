@@ -11,15 +11,18 @@ struct StopsView: View {
     
     @StateObject private var viewModel: StopsViewModel
     
+    private let sumcService: SUMCServiceProtocol
+    
     init(sumcService: SUMCServiceProtocol) {
         _viewModel = StateObject(wrappedValue: StopsViewModel(sumcService: sumcService))
+        self.sumcService = sumcService
     }
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.searchResults) { stop in
-                    NavigationLink(destination: StopScheduleView(stop: stop)) {
+                    NavigationLink(destination: StopScheduleView(sumcService: sumcService, stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
                     }
                 }

@@ -33,7 +33,9 @@
 		4DEDE709288FF15500A545A1 /* PublicTransportSofiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE708288FF15500A545A1 /* PublicTransportSofiaTests.swift */; };
 		4DEDE713288FF15500A545A1 /* PublicTransportSofiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE712288FF15500A545A1 /* PublicTransportSofiaUITests.swift */; };
 		4DEDE715288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE714288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift */; };
+		ECDD308A28933A9D00683270 /* StopScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDD308928933A9D00683270 /* StopScheduleViewModel.swift */; };
 		ECF0EEF128916366006CC87F /* StopScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF0EEF028916366006CC87F /* StopScheduleView.swift */; };
+		ECF3579B289343560066A6C3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF3579A289343560066A6C3 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +85,9 @@
 		4DEDE70E288FF15500A545A1 /* PublicTransportSofiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PublicTransportSofiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEDE712288FF15500A545A1 /* PublicTransportSofiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaUITests.swift; sourceTree = "<group>"; };
 		4DEDE714288FF15500A545A1 /* PublicTransportSofiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ECDD308928933A9D00683270 /* StopScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopScheduleViewModel.swift; sourceTree = "<group>"; };
 		ECF0EEF028916366006CC87F /* StopScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopScheduleView.swift; sourceTree = "<group>"; };
+		ECF3579A289343560066A6C3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				4D6E8FD528902FA200C6D6B5 /* LinesView.swift */,
 				4D8990DF2891C74E00672E63 /* LineStopsView.swift */,
 				4D6E8FD728902FB900C6D6B5 /* NotificationsView.swift */,
+				ECF3579A289343560066A6C3 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				4D769CFB2893222E001FDC8B /* StopsViewModel.swift */,
 				4D769D0128932BD2001FDC8B /* LinesViewModel.swift */,
+				ECDD308928933A9D00683270 /* StopScheduleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -362,7 +368,9 @@
 				4D769CF528930E80001FDC8B /* SUMCService.swift in Sources */,
 				4D769D0028932794001FDC8B /* SUMCServiceMock.swift in Sources */,
 				4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */,
+				ECF3579B289343560066A6C3 /* LoadingView.swift in Sources */,
 				4D6E8FD628902FA200C6D6B5 /* LinesView.swift in Sources */,
+				ECDD308A28933A9D00683270 /* StopScheduleViewModel.swift in Sources */,
 				4D769CF828931379001FDC8B /* JSONRoutes.swift in Sources */,
 				4D6E8FDC289038FE00C6D6B5 /* Coordinate.swift in Sources */,
 				4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */,

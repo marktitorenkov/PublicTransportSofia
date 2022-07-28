@@ -13,7 +13,7 @@ class SUMCService: SUMCServiceProtocol {
     private let stopsUrl = "https://cukii.me/sumc/cache/stops-bg.json"
     
     private let subwayTimetablesUrl = "https://cukii.me/sumc/cache/subway-timetables.json"
-    private let timingUrl = "https://cukii.me/sumc/api/timing/%s"
+    private let timingUrl = "https://cukii.me/sumc/api/timing/%1$@"
     
     private var lines: [Line] = []
     private var stops: [Stop] = []
@@ -59,7 +59,7 @@ class SUMCService: SUMCServiceProtocol {
     }
     
     func fetchSchedule(stopCode: String) async throws -> [LineSchedule] {
-        let (timingData, _) = try await URLSession.shared.data(from: URL(string: timingUrl)!)
+        let (timingData, _) = try await URLSession.shared.data(from: URL(string: String(format: timingUrl, stopCode))!)
         let timingJSON = try JSONDecoder().decode(JSONTiming.self, from: timingData)
         
         var lineSchedules: [LineSchedule] = []

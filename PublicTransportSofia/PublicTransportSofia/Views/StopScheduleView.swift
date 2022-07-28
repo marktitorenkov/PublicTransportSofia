@@ -9,15 +9,12 @@ import SwiftUI
 
 struct StopScheduleView: View {
     
-    let lineSchedules: [LineSchedule] = [
-        LineSchedule(id: LineIdentifier(name: "305", type: .bus), arrivals: [Date() + 100, Date() + 5 * 60, Date() + 15 * 60]),
-        LineSchedule(id: LineIdentifier(name: "10", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
-        LineSchedule(id: LineIdentifier(name: "15", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
-    ]
+    @StateObject private var viewModel: StopScheduleViewModel
     
     let stop: Stop
     
-    init(stop: Stop) {
+    init(sumcService: SUMCServiceProtocol, stop: Stop) {
+        _viewModel = StateObject(wrappedValue: StopScheduleViewModel(sumcService: sumcService))
         self.stop = stop
     }
     
@@ -27,7 +24,7 @@ struct StopScheduleView: View {
                 .padding()
                 .multilineTextAlignment(.center)
             List {
-                ForEach(lineSchedules) { schedule in
+                ForEach(viewModel.lineSchedules) { schedule in
                     Section(header: Text(schedule.line.name).font(.headline)) {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
@@ -47,13 +44,16 @@ struct StopScheduleView: View {
             .listStyle(.insetGrouped)
         }
         .navigationBarTitle("Stop \(stop.code)", displayMode: .inline)
+        .task {
+            try? await viewModel.fetchLineSchedule(stopCode: stop.code)
+        }
     }
 }
 
 struct StopScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            StopScheduleView(stop: Stop(id: "2222", name: "Obshtina mladost", coordinate: Coordinate(x: 1, y: 2)))
+            StopScheduleView(sumcService: SUMCServiceMock(), stop: Stop(id: "2222", name: "Obshtina mladost", coordinate: Coordinate(x: 1, y: 2)))
         }
     }
 }

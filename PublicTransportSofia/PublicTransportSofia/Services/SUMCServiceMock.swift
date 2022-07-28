@@ -13,7 +13,11 @@ class SUMCServiceMock: SUMCServiceProtocol {
     }
     
     func fetchSchedule(stopCode: String) async throws -> [LineSchedule] {
-        []
+        [
+            LineSchedule(id: LineIdentifier(name: "305", type: .bus), arrivals: [Date() + 100, Date() + 5 * 60, Date() + 15 * 60]),
+            LineSchedule(id: LineIdentifier(name: "10", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
+            LineSchedule(id: LineIdentifier(name: "15", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
+        ]
     }
     
     func getLines() -> [Line] {

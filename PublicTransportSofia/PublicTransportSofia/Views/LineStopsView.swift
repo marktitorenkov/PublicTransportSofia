@@ -9,9 +9,11 @@ import SwiftUI
 
 struct LineStopsView: View {
     
+    private let sumcService: SUMCServiceProtocol
     private let line: Line
     
-    init(line: Line) {
+    init(sumcService: SUMCServiceProtocol, line: Line) {
+        self.sumcService = sumcService
         self.line = line
     }
     
@@ -33,7 +35,7 @@ struct LineStopsView: View {
             .padding()
             List {
                 ForEach(directonStops) { stop in
-                    NavigationLink(destination: StopScheduleView(stop: stop)) {
+                    NavigationLink(destination: StopScheduleView(sumcService: sumcService, stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
                     }
                 }
@@ -46,7 +48,7 @@ struct LineStopsView: View {
 struct LineStopsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            LineStopsView(line: Line(id: LineIdentifier(name: "305", type: .bus), Stops: [
+            LineStopsView(sumcService: SUMCServiceMock(), line: Line(id: LineIdentifier(name: "305", type: .bus), Stops: [
                 [
                     Stop(id: "0004", name: "Blok 411", coordinate: Coordinate(x: 0, y: 0)),
                     Stop(id: "0005", name: "Blok 412", coordinate: Coordinate(x: 0, y: 0)),
