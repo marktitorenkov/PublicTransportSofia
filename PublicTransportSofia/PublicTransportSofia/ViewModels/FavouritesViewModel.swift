@@ -35,11 +35,11 @@ class FavouritesViewModel: ObservableObject {
     }
     
     func deleteLine(indexSet: IndexSet) {
-        stops.remove(atOffsets: indexSet)
+        lines.remove(atOffsets: indexSet)
     }
     
     func moveLine(from: IndexSet, to: Int) {
-        stops.move(fromOffsets: from, toOffset: to)
+        lines.move(fromOffsets: from, toOffset: to)
     }
     
     private func saveFavourites() {
