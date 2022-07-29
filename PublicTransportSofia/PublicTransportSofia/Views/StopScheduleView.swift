@@ -31,11 +31,10 @@ struct StopScheduleView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
                                     ForEach(schedule.arrivals, id: \.self) { arrival in
-                                        Text(arrival.formatted(.dateTime.hour().minute()))
-                                            .font(.system(size: 20))
-                                            .padding(20)
-                                            .background(Color(.white))
-                                            .cornerRadius(10)
+                                        Button(arrival.formatted(.dateTime.hour().minute()), action: {})
+                                            .buttonStyle(.bordered)
+                                            .controlSize(.large)
+                                            .padding(5)
                                     }
                                 }
                             }
@@ -57,6 +56,6 @@ struct StopScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             StopScheduleView(sumcService: SUMCServiceMock(), stop: Stop(id: "2222", name: "Obshtina mladost", coordinate: Coordinate(x: 1, y: 2)))
-        }
+        }.preferredColorScheme(.light)
     }
 }
