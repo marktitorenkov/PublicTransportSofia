@@ -10,11 +10,10 @@ import SwiftUI
 struct StopsView: View {
     
     @StateObject private var viewModel: StopsViewModel
-    
     private let sumcService: SUMCServiceProtocol
     
     init(sumcService: SUMCServiceProtocol) {
-        _viewModel = StateObject(wrappedValue: StopsViewModel(sumcService: sumcService))
+        self._viewModel = StateObject(wrappedValue: StopsViewModel(sumcService: sumcService))
         self.sumcService = sumcService
     }
     

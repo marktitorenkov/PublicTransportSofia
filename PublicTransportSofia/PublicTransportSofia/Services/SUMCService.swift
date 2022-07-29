@@ -73,7 +73,8 @@ class SUMCService: SUMCServiceProtocol {
                     arrivals.append(date)
                 }
             }
-            lineSchedules.append(LineSchedule(id: LineIdentifier(name: lineJSON.name, type: LineType(rawValue: lineJSON.vehicle_type)!), arrivals: arrivals))
+            let lineIdentifier = LineIdentifier(name: lineJSON.name, type: LineType(rawValue: lineJSON.vehicle_type)!)
+            lineSchedules.append(LineSchedule(id: lineIdentifier, arrivals: arrivals))
         }
         return lineSchedules
     }

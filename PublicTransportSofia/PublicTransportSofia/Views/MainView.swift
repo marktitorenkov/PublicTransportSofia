@@ -9,24 +9,21 @@ import SwiftUI
 
 struct MainView: View {
     
+    @StateObject private var viewModel: MainViewModel
     private let sumcService: SUMCServiceProtocol
     
-    @State private var fetchedSumc: Bool = false
-    
     init(sumcService: SUMCServiceProtocol) {
+        self._viewModel = StateObject(wrappedValue: MainViewModel(sumcService: sumcService))
         self.sumcService = sumcService
     }
     
-    //@ViewBuilder
     var body: some View {
-        if !fetchedSumc {
-            LoadingView()
+        if !viewModel.fetchedSumc {
+            MainLoadingView()
                 .task {
-                    try? await sumcService.fetchStaticData()
-                    fetchedSumc = true
+                    try? await viewModel.fetchStaticData()
                 }
-        }
-        else {
+        } else {
             TabView {
                 FavouritesView()
                     .tabItem {

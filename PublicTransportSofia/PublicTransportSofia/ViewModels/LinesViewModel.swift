@@ -10,7 +10,6 @@ import Foundation
 class LinesViewModel: ObservableObject {
     
     private let sumcService : SUMCServiceProtocol
-    
     @Published var searchText = ""
     
     init(sumcService: SUMCServiceProtocol) {

@@ -8,9 +8,10 @@
 import Foundation
 
 class StopScheduleViewModel: ObservableObject {
-    @Published var lineSchedules: [LineSchedule] = []
     
     private let sumcService : SUMCServiceProtocol
+    @Published var lineSchedules: [LineSchedule] = []
+    @Published var fetchedSumc: Bool = false
     
     init(sumcService: SUMCServiceProtocol) {
         self.sumcService = sumcService
@@ -21,6 +22,7 @@ class StopScheduleViewModel: ObservableObject {
         
         await MainActor.run {
             lineSchedules = fetched
+            fetchedSumc = true
         }
     }
 }
