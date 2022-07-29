@@ -11,10 +11,12 @@ struct MainView: View {
     
     @StateObject private var viewModel: MainViewModel
     private let sumcService: SUMCServiceProtocol
+    private let favouritesService: FavouritesServiceProtocol
     
-    init(sumcService: SUMCServiceProtocol) {
+    init(sumcService: SUMCServiceProtocol, favouritesService: FavouritesServiceProtocol) {
         self._viewModel = StateObject(wrappedValue: MainViewModel(sumcService: sumcService))
         self.sumcService = sumcService
+        self.favouritesService = favouritesService
     }
     
     var body: some View {
@@ -25,7 +27,7 @@ struct MainView: View {
                 }
         } else {
             TabView {
-                FavouritesView()
+                FavouritesView(sumcService: sumcService, favouritesService: favouritesService)
                     .tabItem {
                         Image(systemName: "star.fill")
                         Text("Favourites")
@@ -52,6 +54,6 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(sumcService: SUMCServiceMock())
+        MainView(sumcService: SUMCServiceMock(), favouritesService: FavouritesServiceMock())
     }
 }

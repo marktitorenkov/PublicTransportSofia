@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LineType : String, Comparable, CustomStringConvertible {
+enum LineType : String, Encodable, Decodable, Comparable, CustomStringConvertible {
     case bus
     case metro
     case tram

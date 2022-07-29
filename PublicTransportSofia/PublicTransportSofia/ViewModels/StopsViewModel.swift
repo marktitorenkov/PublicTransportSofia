@@ -18,9 +18,9 @@ class StopsViewModel: ObservableObject {
     
     var searchResults: [Stop] {
         if searchText.isEmpty {
-            return sumcService.getStops()
+            return sumcService.stops
         } else {
-            return sumcService.getStops().filter {
+            return sumcService.stops.filter {
                 $0.name.localizedCaseInsensitiveContains(searchText) || $0.code.contains(searchText)
             }
         }

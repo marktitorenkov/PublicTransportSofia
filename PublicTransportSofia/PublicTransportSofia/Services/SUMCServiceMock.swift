@@ -20,7 +20,7 @@ class SUMCServiceMock: SUMCServiceProtocol {
         ]
     }
     
-    func getLines() -> [Line] {
+    var lines: [Line] {
         [
             Line(id: LineIdentifier(name: "305", type: .bus), Stops: [
                 [
@@ -41,11 +41,12 @@ class SUMCServiceMock: SUMCServiceProtocol {
         ]
     }
     
-    func getStops() -> [Stop] {
+    var stops: [Stop] {
         [
             Stop(id: "2224", name: "Община младост", coordinate: Coordinate(x: 0, y: 0)),
-            Stop(id: "0012", name: "Test", coordinate: Coordinate(x: 1, y: 1)),
-            Stop(id: "0001", name: "Кулинарен комбинат Пейфил Последната спирка на 305", coordinate: Coordinate(x: 0, y: 0)),
+            Stop(id: "0012", name: "Test 0012", coordinate: Coordinate(x: 1, y: 1)),
+            Stop(id: "0004", name: "Test 004", coordinate: Coordinate(x: 0, y: 0)),
+            Stop(id: "0005", name: "Test 005", coordinate: Coordinate(x: 0, y: 0)),
         ]
     }
     

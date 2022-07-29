@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LineIdentifier: Hashable {
+struct LineIdentifier: Hashable, Decodable, Encodable {
     let name: String
     let type: LineType
 }

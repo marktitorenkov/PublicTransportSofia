@@ -22,9 +22,9 @@ class LinesViewModel: ObservableObject {
     
     var searchResults: [Line] {
         if searchText.isEmpty {
-            return sumcService.getLines()
+            return sumcService.lines
         } else {
-            return sumcService.getLines().filter {
+            return sumcService.lines.filter {
                 $0.id.name.contains(searchText)
             }
         }

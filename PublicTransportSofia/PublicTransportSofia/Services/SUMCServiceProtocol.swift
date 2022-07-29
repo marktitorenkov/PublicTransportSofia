@@ -13,8 +13,8 @@ protocol SUMCServiceProtocol {
     
     func fetchSchedule(stopCode: String) async throws -> [LineSchedule]
     
-    func getLines() -> [Line]
+    var lines: [Line] { get }
     
-    func getStops() -> [Stop]
+    var stops: [Stop] { get }
     
 }
