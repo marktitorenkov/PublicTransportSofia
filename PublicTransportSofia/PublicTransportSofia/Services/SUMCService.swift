@@ -28,7 +28,9 @@ class SUMCService: SUMCServiceProtocol {
         
         var stops: [String : Stop] = [:]
         for (code, stopJSON) in stopsJSON {
-            let name = stopJSON.n.replacingOccurrences(of: "  ", with: " ").trimmingCharacters(in: .whitespacesAndNewlines)
+            let name = stopJSON.n
+                .replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
+                .trimmingCharacters(in: .whitespacesAndNewlines)
             stops[code] = Stop(id: code, name: name, coordinate: Coordinate(x: stopJSON.x, y: stopJSON.y))
         }
         self.stops = stops.values.sorted(by: { $0.code.localizedStandardCompare($1.code) == .orderedAscending })
@@ -67,11 +69,30 @@ class SUMCService: SUMCServiceProtocol {
         for lineJSON in timingJSON.lines {
             var arrivals: [Date] = []
             for arrivalJSON in lineJSON.arrivals {
-                arrivals.append(DateFormatter().date(from: arrivalJSON.time)!)
+                if let date = createArrivalDate(arrivalString: arrivalJSON.time) {
+                    arrivals.append(date)
+                }
             }
             lineSchedules.append(LineSchedule(id: LineIdentifier(name: lineJSON.name, type: LineType(rawValue: lineJSON.vehicle_type)!), arrivals: arrivals))
         }
         return lineSchedules
+    }
+    
+    private func createArrivalDate(arrivalString: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss"
+        guard let arrivalTime = formatter.date(from: arrivalString) else { return nil }
+        let now = Date()
+        var nowComponents = Calendar.current.dateComponents([.year, .month, .day], from: now)
+        let arrivalComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: arrivalTime)
+        nowComponents.hour = arrivalComponents.hour
+        nowComponents.minute = arrivalComponents.minute
+        nowComponents.second = arrivalComponents.second
+        let arrivalDate = Calendar.current.date(from: nowComponents)!
+        if (now > arrivalDate + 12 * 60 * 60) {
+            return arrivalDate + 24 * 60 * 60
+        }
+        return arrivalDate
     }
     
     func getLines() -> [Line] {
