@@ -9,40 +9,47 @@ import SwiftUI
 
 struct LinesView: View {
     
-    @StateObject private var viewModel: LinesViewModel
+    @EnvironmentObject var sumcDataStore: SUMCDataStore
     
-    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>) {
-        self._viewModel = StateObject(wrappedValue: LinesViewModel(
-            sumcService: sumcService,
-            favourites: favourites))
-    }
+    @State var searchText = ""
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.searchResultsByType.keys.sorted(), id: \.self) { type in
+                ForEach(searchResultsByType.keys.sorted(), id: \.self) { type in
                     Section(header: Text(type.description)) {
-                        ForEach(viewModel.searchResultsByType[type] ?? []) { line in
-                            NavigationLink(destination: LineStopsView(
-                                sumcService: viewModel.sumcService,
-                                favourites: $viewModel.favourites,
-                                line: line)) {
+                        ForEach(searchResultsByType[type] ?? []) { line in
+                            NavigationLink(destination: LineStopsView(line: line)) {
                                 Text(line.id.name)
                             }
                         }
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText)
+            .searchable(text: $searchText)
             .navigationTitle("Lines")
         }
     }
+    
+    var searchResultsByType: [LineType : [Line]] {
+        Dictionary(grouping: searchResults, by: { $0.id.type })
+    }
+    
+    var searchResults: [Line] {
+        if searchText.isEmpty {
+            return sumcDataStore.lines
+        } else {
+            return sumcDataStore.lines.filter {
+                $0.id.name.contains(searchText)
+            }
+        }
+    }
+    
 }
 
 struct LinesView_Previews: PreviewProvider {
     static var previews: some View {
-        LinesView(
-            sumcService: SUMCServiceMock(),
-            favourites: .constant(FavouritesServiceMock().loadFavourites()))
+        LinesView()
+            .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
     }
 }

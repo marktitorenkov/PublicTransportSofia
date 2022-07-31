@@ -9,30 +9,27 @@ import SwiftUI
 
 struct StopScheduleView: View {
     
-    @StateObject private var viewModel: StopScheduleViewModel
+    let stop: Stop
+    @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @EnvironmentObject var favouritesStore: FavouritesStore
     
-    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>, stop: Stop) {
-        self._viewModel = StateObject(wrappedValue: StopScheduleViewModel(
-            sumcService: sumcService,
-            favourites: favourites,
-            stop: stop))
-    }
+    @State var lineSchedules: [LineSchedule]? = nil
     
     var body: some View {
         VStack {
-            Text(viewModel.stop.name)
+            Text(stop.name)
                 .padding()
                 .multilineTextAlignment(.center)
-            if (!viewModel.fetchedSumc) {
+            if (lineSchedules == nil) {
                 ProgressView()
             } else {
                 List {
-                    ForEach(viewModel.lineSchedules) { schedule in
+                    ForEach(lineSchedules ?? []) { schedule in
                         Section(header: Text(schedule.line.name).font(.headline)) {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
                                     ForEach(schedule.arrivals, id: \.self) { arrival in
-                                        Button(viewModel.arrivalFormat(arrival), action: {})
+                                        Button(arrivalFormat(arrival), action: {})
                                             .buttonStyle(.bordered)
                                             .controlSize(.large)
                                             .padding(5)
@@ -46,23 +43,34 @@ struct StopScheduleView: View {
                 .listStyle(.insetGrouped)
             }
         }
-        .navigationBarTitle("Stop \(viewModel.stop.code)", displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: { viewModel.favourited.toggle() }) {
-            Image(systemName: viewModel.favourited ? "star.fill" :  "star")
+        .navigationBarTitle("Stop \(stop.code)", displayMode: .inline)
+        .navigationBarItems(trailing: Button(action: { favouritesStore.toggleStop(code: stop.code) }) {
+            Image(systemName: favouritesStore.getStop(code: stop.code) ? "star.fill" :  "star")
         })
         .task {
-            try? await viewModel.fetchLineSchedule()
+            try? await fetchLineSchedule()
         }
     }
+    
+    func fetchLineSchedule() async throws {
+        lineSchedules = try await sumcDataStore.fetchLineSchedule(stopCode: stop.code)
+    }
+    
+    func arrivalFormat(_ arrival: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: arrival)
+    }
+    
 }
 
 struct StopScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             StopScheduleView(
-                sumcService: SUMCServiceMock(),
-                favourites: .constant(FavouritesServiceMock().loadFavourites()),
                 stop: Stop(id: "2222", name: "Obshtina mladost", coordinate: Coordinate(x: 1, y: 2)))
+            .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
+            .environmentObject(FavouritesStore(favouritesService: FavouritesServiceMock()))
         }
     }
 }

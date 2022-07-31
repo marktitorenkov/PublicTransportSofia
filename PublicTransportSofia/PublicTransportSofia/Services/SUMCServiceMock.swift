@@ -9,19 +9,14 @@ import Foundation
 
 class SUMCServiceMock: SUMCServiceProtocol {
     
-    func fetchStaticData() async throws {
-    }
-    
-    func fetchSchedule(stopCode: String) async throws -> [LineSchedule] {
-        [
-            LineSchedule(id: LineIdentifier(name: "305", type: .bus), arrivals: [Date() + 100, Date() + 5 * 60, Date() + 15 * 60]),
-            LineSchedule(id: LineIdentifier(name: "10", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
-            LineSchedule(id: LineIdentifier(name: "15", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
-        ]
-    }
-    
-    var lines: [Line] {
-        [
+    private var data = SUMCData(
+        stops: [
+            Stop(id: "2224", name: "Община младост", coordinate: Coordinate(x: 0, y: 0)),
+            Stop(id: "0012", name: "Test 0012", coordinate: Coordinate(x: 1, y: 1)),
+            Stop(id: "0004", name: "Test 004", coordinate: Coordinate(x: 0, y: 0)),
+            Stop(id: "0005", name: "Test 005", coordinate: Coordinate(x: 0, y: 0)),
+        ],
+        lines: [
             Line(id: LineIdentifier(name: "305", type: .bus), stops: [
                 [
                     Stop(id: "0004", name: "Blok 411", coordinate: Coordinate(x: 0, y: 0)),
@@ -38,15 +33,17 @@ class SUMCServiceMock: SUMCServiceProtocol {
             Line(id: LineIdentifier(name: "10", type: .tram), stops: []),
             Line(id: LineIdentifier(name: "4", type: .trolley), stops: []),
             Line(id: LineIdentifier(name: "4", type: .bus), stops: []),
-        ]
-    }
+        ])
     
-    var stops: [Stop] {
+    var initialData: SUMCData { self.data }
+    
+    func fetchStaticData() async throws -> SUMCData { self.data }
+    
+    func fetchSchedule(stopCode: String) async throws -> [LineSchedule] {
         [
-            Stop(id: "2224", name: "Община младост", coordinate: Coordinate(x: 0, y: 0)),
-            Stop(id: "0012", name: "Test 0012", coordinate: Coordinate(x: 1, y: 1)),
-            Stop(id: "0004", name: "Test 004", coordinate: Coordinate(x: 0, y: 0)),
-            Stop(id: "0005", name: "Test 005", coordinate: Coordinate(x: 0, y: 0)),
+            LineSchedule(id: LineIdentifier(name: "305", type: .bus), arrivals: [Date() + 100, Date() + 5 * 60, Date() + 15 * 60]),
+            LineSchedule(id: LineIdentifier(name: "10", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
+            LineSchedule(id: LineIdentifier(name: "15", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
         ]
     }
     

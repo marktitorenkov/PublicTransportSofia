@@ -9,12 +9,10 @@ import Foundation
 
 protocol SUMCServiceProtocol {
     
-    func fetchStaticData() async throws -> ()
+    var initialData: SUMCData { get }
+    
+    func fetchStaticData() async throws -> SUMCData
     
     func fetchSchedule(stopCode: String) async throws -> [LineSchedule]
-    
-    var lines: [Line] { get }
-    
-    var stops: [Stop] { get }
     
 }

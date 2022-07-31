@@ -9,55 +9,59 @@ import SwiftUI
 
 struct LineStopsView: View {
     
-    @StateObject private var viewModel: LineStopsViewModel
+    @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @EnvironmentObject var favouritesStore: FavouritesStore
     
-    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>, line: Line) {
-        self._viewModel = StateObject(wrappedValue: LineStopsViewModel(
-            sumcService: sumcService,
-            favourites: favourites,
-            line: line))
-    }
+    let line: Line
+    @State var direction = 0
     
     var body: some View {
         VStack {
-            Picker("Direction", selection: $viewModel.direction) {
-                ForEach(Array(viewModel.line.stops.enumerated()), id: \.0) { i, dir in
+            Picker("Direction", selection: $direction) {
+                ForEach(Array(line.stops.enumerated()), id: \.0) { i, dir in
                     Text("\(dir.first?.name ?? "") - \(dir.last?.name ?? "")").tag(i)
                 }
             }
             .pickerStyle(.segmented)
             .padding()
             List {
-                ForEach(viewModel.directonStops) { stop in
-                    NavigationLink(destination: StopScheduleView(
-                        sumcService: viewModel.sumcService,
-                        favourites: $viewModel.favourites,
-                        stop: stop)) {
+                ForEach(directonStops) { stop in
+                    NavigationLink(destination: StopScheduleView(stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
                     }
                 }
             }
         }
-        .navigationBarTitle("\(viewModel.line.id.type.description) \(viewModel.line.id.name)")
+        .navigationBarTitle("\(line.id.type.description) \(line.id.name)")
+        .navigationBarItems(trailing: Button(action: { favouritesStore.toggleLine(id: line.id) }) {
+            Image(systemName: favouritesStore.getLine(id: line.id) ? "star.fill" :  "star")
+        })
     }
+    
+    var directonStops: [Stop] {
+        return line.stops.indices.contains(direction)
+        ? line.stops[direction]
+        : []
+    }
+    
 }
 
 struct LineStopsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             LineStopsView(
-                sumcService: SUMCServiceMock(),
-                favourites: .constant(FavouritesServiceMock().loadFavourites()),
                 line: Line(id: LineIdentifier(name: "305", type: .bus), stops: [
-                [
-                    Stop(id: "0004", name: "Blok 411", coordinate: Coordinate(x: 0, y: 0)),
-                    Stop(id: "0005", name: "Blok 412", coordinate: Coordinate(x: 0, y: 0)),
-                ],
-                [
-                    Stop(id: "0007", name: "Blok 413", coordinate: Coordinate(x: 0, y: 0)),
-                    Stop(id: "0008", name: "Blok 412", coordinate: Coordinate(x: 0, y: 0)),
-                ],
-            ]))
+                    [
+                        Stop(id: "0004", name: "Blok 411", coordinate: Coordinate(x: 0, y: 0)),
+                        Stop(id: "0005", name: "Blok 412", coordinate: Coordinate(x: 0, y: 0)),
+                    ],
+                    [
+                        Stop(id: "0007", name: "Blok 413", coordinate: Coordinate(x: 0, y: 0)),
+                        Stop(id: "0008", name: "Blok 412", coordinate: Coordinate(x: 0, y: 0)),
+                    ],
+                ]))
         }
+        .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
+        .environmentObject(FavouritesStore(favouritesService: FavouritesServiceMock()))
     }
 }

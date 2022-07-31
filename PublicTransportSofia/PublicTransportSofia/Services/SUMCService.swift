@@ -15,10 +15,9 @@ class SUMCService: SUMCServiceProtocol {
     private let subwayTimetablesUrl = "https://cukii.me/sumc/cache/subway-timetables.json"
     private let timingUrl = "https://cukii.me/sumc/api/timing/%1$@"
     
-    private(set) var lines: [Line] = []
-    private(set) var stops: [Stop] = []
+    var initialData: SUMCData { SUMCData() }
     
-    func fetchStaticData() async throws -> () {
+    func fetchStaticData() async throws -> SUMCData {
         async let (stopsDataAsync, _) = URLSession.shared.data(from: URL(string: stopsUrl)!)
         async let (routesDataAsync, _) = URLSession.shared.data(from: URL(string: routesUrl)!)
         
@@ -26,21 +25,22 @@ class SUMCService: SUMCServiceProtocol {
         let routesJSON = try JSONDecoder().decode(JSONRoutes.self, from: routesData)
         let stopsJSON = try JSONDecoder().decode(JSONStops.self, from: stopsData)
         
-        var stops: [String : Stop] = [:]
+        var stopsDict: [String : Stop] = [:]
         for (code, stopJSON) in stopsJSON {
             let name = stopJSON.n
                 .replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
                 .trimmingCharacters(in: .whitespacesAndNewlines)
-            stops[code] = Stop(id: code, name: name, coordinate: Coordinate(x: stopJSON.x, y: stopJSON.y))
+            stopsDict[code] = Stop(id: code, name: name, coordinate: Coordinate(x: stopJSON.x, y: stopJSON.y))
         }
-        self.stops = stops.values.sorted(by: { $0.code.localizedStandardCompare($1.code) == .orderedAscending })
+        let stops = stopsDict.values.sorted(by: { $0.code.localizedStandardCompare($1.code) == .orderedAscending })
         
         var lines: [Line] = []
-        lines.append(contentsOf: createLinesForType(routes: routesJSON.bus, type: .bus, stops: stops))
-        lines.append(contentsOf: createLinesForType(routes: routesJSON.subway, type: .metro, stops: stops))
-        lines.append(contentsOf: createLinesForType(routes: routesJSON.tram, type: .tram, stops: stops))
-        lines.append(contentsOf: createLinesForType(routes: routesJSON.trolley, type: .trolley, stops: stops))
-        self.lines = lines
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.bus, type: .bus, stops: stopsDict))
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.subway, type: .metro, stops: stopsDict))
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.tram, type: .tram, stops: stopsDict))
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.trolley, type: .trolley, stops: stopsDict))
+        
+        return SUMCData(stops: stops, lines: lines)
     }
     
     private func createLinesForType(routes: [String: [JSONRoutesStops]], type: LineType, stops: [String : Stop]) -> [Line] {

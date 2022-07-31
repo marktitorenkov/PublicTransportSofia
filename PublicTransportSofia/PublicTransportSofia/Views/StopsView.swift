@@ -9,36 +9,39 @@ import SwiftUI
 
 struct StopsView: View {
     
-    @StateObject private var viewModel: StopsViewModel
-    
-    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>) {
-        self._viewModel = StateObject(wrappedValue: StopsViewModel(
-            sumcService: sumcService,
-            favourites: favourites))
-    }
+    @EnvironmentObject var sumcDataStore: SUMCDataStore
+
+    @State var searchText = ""
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.searchResults) { stop in
-                    NavigationLink(destination: StopScheduleView(
-                        sumcService: viewModel.sumcService,
-                        favourites: $viewModel.favourites,
-                        stop: stop)) {
+                ForEach(searchResults) { stop in
+                    NavigationLink(destination: StopScheduleView(stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText)
+            .searchable(text: $searchText)
             .navigationTitle("Stops")
         }
     }
+    
+    var searchResults: [Stop] {
+        if searchText.isEmpty {
+            return sumcDataStore.stops
+        } else {
+            return sumcDataStore.stops.filter {
+                $0.name.localizedCaseInsensitiveContains(searchText) || $0.code.contains(searchText)
+            }
+        }
+    }
+    
 }
 
 struct StopsView_Previews: PreviewProvider {
     static var previews: some View {
-        StopsView(
-            sumcService: SUMCServiceMock(),
-            favourites: .constant(FavouritesServiceMock().loadFavourites()))
+        StopsView()
+            .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
     }
 }
