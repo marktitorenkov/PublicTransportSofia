@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class FavouritesStore: ObservableObject {
+class FavouritesStore: ObservableObject {
     
     let favouritesService: FavouritesServiceProtocol
     @Published var favourites: Favourites {
@@ -27,20 +27,28 @@ import Foundation
         return favourites.getLine(id: id)
     }
     
-    func updateStop(code: String, favourited: Bool) -> Void {
-        favourites.updateStop(code: code, favourited: favourited)
-    }
-    
-    func updateLine(id: LineIdentifier, favourited: Bool) -> Void {
-        favourites.updateLine(id: id, favourited: favourited)
-    }
-    
     func toggleStop(code: String) -> Void {
-        updateStop(code: code, favourited: !getStop(code: code))
+        favourites.updateStop(code: code, favourited: !favourites.getStop(code: code))
     }
     
     func toggleLine(id: LineIdentifier) -> Void {
-        updateLine(id: id, favourited: !getLine(id: id))
+        favourites.updateLine(id: id, favourited: !favourites.getLine(id: id))
+    }
+    
+    func deleteStops(indexSet: IndexSet) {
+        favourites.stopCodes.remove(atOffsets: indexSet)
+    }
+    
+    func deleteLines(indexSet: IndexSet) {
+        favourites.lineIds.remove(atOffsets: indexSet)
+    }
+    
+    func moveStops(from: IndexSet, to: Int) {
+        favourites.stopCodes.move(fromOffsets: from, toOffset: to)
+    }
+    
+    func moveLines(from: IndexSet, to: Int) {
+        favourites.lineIds.move(fromOffsets: from, toOffset: to)
     }
     
 }

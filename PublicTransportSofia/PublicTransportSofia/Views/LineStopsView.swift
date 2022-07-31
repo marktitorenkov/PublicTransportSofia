@@ -28,11 +28,12 @@ struct LineStopsView: View {
                 ForEach(directonStops) { stop in
                     NavigationLink(destination: StopScheduleView(stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
+                            .lineLimit(1)
                     }
                 }
             }
         }
-        .navigationBarTitle("\(line.id.type.description) \(line.id.name)")
+        .navigationBarTitle("\(line.id.type.description) \(line.displayName)")
         .navigationBarItems(trailing: Button(action: { favouritesStore.toggleLine(id: line.id) }) {
             Image(systemName: favouritesStore.getLine(id: line.id) ? "star.fill" :  "star")
         })

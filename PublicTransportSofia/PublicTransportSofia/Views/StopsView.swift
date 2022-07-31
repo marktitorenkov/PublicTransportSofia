@@ -19,6 +19,7 @@ struct StopsView: View {
                 ForEach(searchResults) { stop in
                     NavigationLink(destination: StopScheduleView(stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
+                            .lineLimit(1)
                     }
                 }
             }

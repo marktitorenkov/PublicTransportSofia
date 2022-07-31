@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Used to setup all dependencies
 struct AppView: View {
     
     @StateObject var sumcDataStore = SUMCDataStore(sumcService: SUMCService())
@@ -16,11 +17,5 @@ struct AppView: View {
         MainView()
             .environmentObject(sumcDataStore)
             .environmentObject(favouritesStore)
-    }
-}
-
-struct AppView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppView()
     }
 }

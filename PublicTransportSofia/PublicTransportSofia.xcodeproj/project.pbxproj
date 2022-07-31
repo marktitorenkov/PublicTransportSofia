@@ -174,8 +174,8 @@
 				4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */,
 				4D769CF428930E80001FDC8B /* SUMCService.swift */,
 				4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */,
-				4D38EBF7289400A10069E3BE /* FavouritesService.swift */,
 				4D38EBFD289405F10069E3BE /* FavouritesServiceProtocol.swift */,
+				4D38EBF7289400A10069E3BE /* FavouritesService.swift */,
 				4D38EBFF2894089A0069E3BE /* FavouritesServiceMock.swift */,
 			);
 			path = Services;

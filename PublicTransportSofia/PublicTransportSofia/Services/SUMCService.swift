@@ -36,14 +36,14 @@ class SUMCService: SUMCServiceProtocol {
         
         var lines: [Line] = []
         lines.append(contentsOf: createLinesForType(routes: routesJSON.bus, type: .bus, stops: stopsDict))
-        lines.append(contentsOf: createLinesForType(routes: routesJSON.subway, type: .metro, stops: stopsDict))
+        lines.append(contentsOf: createLinesForType(routes: routesJSON.subway, type: .metro, stops: stopsDict, nameMapping: routesJSON.subwayNames))
         lines.append(contentsOf: createLinesForType(routes: routesJSON.tram, type: .tram, stops: stopsDict))
         lines.append(contentsOf: createLinesForType(routes: routesJSON.trolley, type: .trolley, stops: stopsDict))
         
         return SUMCData(stops: stops, lines: lines)
     }
     
-    private func createLinesForType(routes: [String: [JSONRoutesStops]], type: LineType, stops: [String : Stop]) -> [Line] {
+    private func createLinesForType(routes: [String: [JSONRoutesStops]], type: LineType, stops: [String : Stop], nameMapping: [String : String]? = nil) -> [Line] {
         var lines: [Line] = []
         for (lineName, directionsJSON) in routes {
             var directions: [[Stop]] = []
@@ -56,14 +56,26 @@ class SUMCService: SUMCServiceProtocol {
                 }
                 directions.append(direction)
             }
-            lines.append(Line(id: LineIdentifier(name: lineName, type: type), stops: directions))
+            lines.append(createLine(id: LineIdentifier(name: lineName, type: type), directions: directions, nameMapping: nameMapping))
         }
         return lines.sorted(by: { $0.id.name.localizedStandardCompare($1.id.name) == .orderedAscending })
     }
     
-    func fetchSchedule(stopCode: String) async throws -> [LineSchedule] {
-        let (timingData, _) = try await URLSession.shared.data(from: URL(string: String(format: timingUrl, stopCode))!)
-        let timingJSON = try JSONDecoder().decode(JSONTiming.self, from: timingData)
+    private func createLine(id: LineIdentifier, directions: [[Stop]], nameMapping: [String : String]? = nil) -> Line {
+        if let nameMapping = nameMapping {
+            return Line(id: id, displayName: nameMapping[id.name], stops: directions)
+        } else {
+            return Line(id: id, stops: directions)
+        }
+    }
+    
+    func fetchSchedule(stopCode: String) async -> [LineSchedule] {
+        guard
+            let (timingData, _) = try? await URLSession.shared.data(from: URL(string: String(format: timingUrl, stopCode))!),
+            let timingJSON = try? JSONDecoder().decode(JSONTiming.self, from: timingData)
+        else {
+            return []
+        }
         
         var lineSchedules: [LineSchedule] = []
         for lineJSON in timingJSON.lines {

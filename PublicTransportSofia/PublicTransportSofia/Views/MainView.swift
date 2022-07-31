@@ -12,13 +12,10 @@ struct MainView: View {
     @EnvironmentObject var sumcDataStore: SUMCDataStore
     @EnvironmentObject var favouritesStore: FavouritesStore
     
+    @State var sumcFetched = false
+    
     var body: some View {
-        if sumcDataStore.stops.isEmpty {
-            MainLoadingView()
-                .task {
-                    try? await sumcDataStore.fetchStaticData()
-                }
-        } else {
+        if sumcFetched {
             TabView {
                 FavouritesView()
                     .tabItem {
@@ -41,8 +38,13 @@ struct MainView: View {
                         Text("Notifications")
                     }
             }
-            .environmentObject(favouritesStore)
-            .environmentObject(sumcDataStore)
+            
+        } else {
+            MainLoadingView()
+                .task {
+                    try? await sumcDataStore.fetchStaticData()
+                    sumcFetched = true
+                }
         }
     }
 }

@@ -39,7 +39,7 @@ class SUMCServiceMock: SUMCServiceProtocol {
     
     func fetchStaticData() async throws -> SUMCData { self.data }
     
-    func fetchSchedule(stopCode: String) async throws -> [LineSchedule] {
+    func fetchSchedule(stopCode: String) async -> [LineSchedule] {
         [
             LineSchedule(id: LineIdentifier(name: "305", type: .bus), arrivals: [Date() + 100, Date() + 5 * 60, Date() + 15 * 60]),
             LineSchedule(id: LineIdentifier(name: "10", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),

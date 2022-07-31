@@ -22,17 +22,17 @@ struct FavouritesView: View {
                                 .lineLimit(1)
                         }
                     }
-                    .onDelete(perform: deleteStop)
-                    .onMove(perform: moveStop)
+                    .onDelete(perform: favouritesStore.deleteStops)
+                    .onMove(perform: favouritesStore.moveStops)
                 }
                 Section(header: Text("Lines")) {
                     ForEach(lines) { line in
                         NavigationLink(destination: LineStopsView(line: line)) {
-                            Text(line.id.name)
+                            Text(line.displayName)
                         }
                     }
-                    .onDelete(perform: deleteLine)
-                    .onMove(perform: moveLine)
+                    .onDelete(perform: favouritesStore.deleteLines)
+                    .onMove(perform: favouritesStore.moveLines)
                 }
             }
             .navigationTitle("Favourites")
@@ -50,22 +50,6 @@ struct FavouritesView: View {
         favouritesStore.favourites.lineIds
             .map({ id in sumcDataStore.lines.first(where: { $0.id == id })
                 ?? Line(id: id, stops: []) })
-    }
-    
-    func deleteStop(indexSet: IndexSet) {
-        favouritesStore.favourites.stopCodes.remove(atOffsets: indexSet)
-    }
-    
-    func deleteLine(indexSet: IndexSet) {
-        favouritesStore.favourites.lineIds.remove(atOffsets: indexSet)
-    }
-    
-    func moveStop(from: IndexSet, to: Int) {
-        favouritesStore.favourites.stopCodes.move(fromOffsets: from, toOffset: to)
-    }
-    
-    func moveLine(from: IndexSet, to: Int) {
-        favouritesStore.favourites.lineIds.move(fromOffsets: from, toOffset: to)
     }
     
 }

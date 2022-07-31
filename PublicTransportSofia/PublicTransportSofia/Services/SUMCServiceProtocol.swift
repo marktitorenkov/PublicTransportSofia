@@ -13,6 +13,6 @@ protocol SUMCServiceProtocol {
     
     func fetchStaticData() async throws -> SUMCData
     
-    func fetchSchedule(stopCode: String) async throws -> [LineSchedule]
+    func fetchSchedule(stopCode: String) async -> [LineSchedule]
     
 }

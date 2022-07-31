@@ -20,11 +20,9 @@ struct StopScheduleView: View {
             Text(stop.name)
                 .padding()
                 .multilineTextAlignment(.center)
-            if (lineSchedules == nil) {
-                ProgressView()
-            } else {
+            if let schedules = lineSchedules {
                 List {
-                    ForEach(lineSchedules ?? []) { schedule in
+                    ForEach(schedules) { schedule in
                         Section(header: Text(schedule.line.name).font(.headline)) {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
@@ -41,6 +39,8 @@ struct StopScheduleView: View {
                     }
                 }
                 .listStyle(.insetGrouped)
+            } else {
+                ProgressView()
             }
         }
         .navigationBarTitle("Stop \(stop.code)", displayMode: .inline)
@@ -48,12 +48,8 @@ struct StopScheduleView: View {
             Image(systemName: favouritesStore.getStop(code: stop.code) ? "star.fill" :  "star")
         })
         .task {
-            try? await fetchLineSchedule()
+            lineSchedules = await sumcDataStore.fetchLineSchedule(stopCode: stop.code)
         }
-    }
-    
-    func fetchLineSchedule() async throws {
-        lineSchedules = try await sumcDataStore.fetchLineSchedule(stopCode: stop.code)
     }
     
     func arrivalFormat(_ arrival: Date) -> String {

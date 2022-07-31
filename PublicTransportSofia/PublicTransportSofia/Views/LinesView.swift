@@ -20,7 +20,8 @@ struct LinesView: View {
                     Section(header: Text(type.description)) {
                         ForEach(searchResultsByType[type] ?? []) { line in
                             NavigationLink(destination: LineStopsView(line: line)) {
-                                Text(line.id.name)
+                                Text(line.displayName)
+                                    .lineLimit(1)
                             }
                         }
                     }

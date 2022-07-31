@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor class SUMCDataStore: ObservableObject {
+class SUMCDataStore: ObservableObject {
     
     let sumcService: SUMCServiceProtocol
     @Published private(set) var sumcData: SUMCData
@@ -21,11 +21,14 @@ import Foundation
     var lines: [Line] { sumcData.lines }
     
     func fetchStaticData() async throws -> () {
-        self.sumcData = try await self.sumcService.fetchStaticData()
+        let sumcData = try await self.sumcService.fetchStaticData()
+        await MainActor.run {
+            self.sumcData = sumcData
+        }
     }
     
-    func fetchLineSchedule(stopCode: String) async throws -> [LineSchedule] {
-        return try await self.sumcService.fetchSchedule(stopCode: stopCode)
+    func fetchLineSchedule(stopCode: String) async -> [LineSchedule] {
+        return await self.sumcService.fetchSchedule(stopCode: stopCode)
     }
     
 }
