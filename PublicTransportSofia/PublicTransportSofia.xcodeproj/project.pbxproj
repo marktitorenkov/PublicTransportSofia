@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D38EBF8289400A10069E3BE /* FavouritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D38EBF7289400A10069E3BE /* FavouritesService.swift */; };
-		4D38EBFA289400C00069E3BE /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D38EBF9289400C00069E3BE /* Favourites.swift */; };
+		4D38EBFA289400C00069E3BE /* JSONFavourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D38EBF9289400C00069E3BE /* JSONFavourites.swift */; };
 		4D38EBFC289405460069E3BE /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D38EBFB289405460069E3BE /* FavouritesViewModel.swift */; };
 		4D38EBFE289405F10069E3BE /* FavouritesServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D38EBFD289405F10069E3BE /* FavouritesServiceProtocol.swift */; };
 		4D38EC002894089A0069E3BE /* FavouritesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D38EBFF2894089A0069E3BE /* FavouritesServiceMock.swift */; };
@@ -22,6 +22,9 @@
 		4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */; };
 		4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FE128903BED00C6D6B5 /* LineType.swift */; };
 		4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */; };
+		4D7106F62895718D0001A6AE /* LineStopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7106F52895718D0001A6AE /* LineStopsViewModel.swift */; };
+		4D7106F92895DDA10001A6AE /* FavouritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7106F82895DDA10001A6AE /* FavouritesStore.swift */; };
+		4D73E2D728954ADE00343417 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73E2D628954ADE00343417 /* Favourites.swift */; };
 		4D769CF528930E80001FDC8B /* SUMCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF428930E80001FDC8B /* SUMCService.swift */; };
 		4D769CF828931379001FDC8B /* JSONRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF728931379001FDC8B /* JSONRoutes.swift */; };
 		4D769CFA28931BF7001FDC8B /* JSONStops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF928931BF7001FDC8B /* JSONStops.swift */; };
@@ -63,7 +66,7 @@
 
 /* Begin PBXFileReference section */
 		4D38EBF7289400A10069E3BE /* FavouritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesService.swift; sourceTree = "<group>"; };
-		4D38EBF9289400C00069E3BE /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
+		4D38EBF9289400C00069E3BE /* JSONFavourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFavourites.swift; sourceTree = "<group>"; };
 		4D38EBFB289405460069E3BE /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		4D38EBFD289405F10069E3BE /* FavouritesServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesServiceProtocol.swift; sourceTree = "<group>"; };
 		4D38EBFF2894089A0069E3BE /* FavouritesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesServiceMock.swift; sourceTree = "<group>"; };
@@ -77,6 +80,9 @@
 		4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineIdentifier.swift; sourceTree = "<group>"; };
 		4D6E8FE128903BED00C6D6B5 /* LineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineType.swift; sourceTree = "<group>"; };
 		4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSchedule.swift; sourceTree = "<group>"; };
+		4D7106F52895718D0001A6AE /* LineStopsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsViewModel.swift; sourceTree = "<group>"; };
+		4D7106F82895DDA10001A6AE /* FavouritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStore.swift; sourceTree = "<group>"; };
+		4D73E2D628954ADE00343417 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		4D769CF428930E80001FDC8B /* SUMCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCService.swift; sourceTree = "<group>"; };
 		4D769CF728931379001FDC8B /* JSONRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRoutes.swift; sourceTree = "<group>"; };
 		4D769CF928931BF7001FDC8B /* JSONStops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStops.swift; sourceTree = "<group>"; };
@@ -146,13 +152,13 @@
 			isa = PBXGroup;
 			children = (
 				4D769CF62893136C001FDC8B /* JSON */,
-				4D6E8FD92890377700C6D6B5 /* Stop.swift */,
 				4D6E8FDB289038FE00C6D6B5 /* Coordinate.swift */,
+				4D6E8FD92890377700C6D6B5 /* Stop.swift */,
 				4D6E8FDD28903AB900C6D6B5 /* Line.swift */,
 				4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */,
 				4D6E8FE128903BED00C6D6B5 /* LineType.swift */,
 				4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */,
-				4D38EBF9289400C00069E3BE /* Favourites.swift */,
+				4D73E2D628954ADE00343417 /* Favourites.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +171,8 @@
 				4D769CFB2893222E001FDC8B /* StopsViewModel.swift */,
 				ECDD308928933A9D00683270 /* StopScheduleViewModel.swift */,
 				4D769D0128932BD2001FDC8B /* LinesViewModel.swift */,
+				4D7106F52895718D0001A6AE /* LineStopsViewModel.swift */,
+				4D7106F82895DDA10001A6AE /* FavouritesStore.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 				4D769CF728931379001FDC8B /* JSONRoutes.swift */,
 				4D769CF928931BF7001FDC8B /* JSONStops.swift */,
 				4D769D032893340E001FDC8B /* JSONTiming.swift */,
+				4D38EBF9289400C00069E3BE /* JSONFavourites.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -388,7 +397,7 @@
 				4D38EBFC289405460069E3BE /* FavouritesViewModel.swift in Sources */,
 				4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */,
 				4D7AE2D22893DC2700D4F8ED /* MainViewModel.swift in Sources */,
-				4D38EBFA289400C00069E3BE /* Favourites.swift in Sources */,
+				4D38EBFA289400C00069E3BE /* JSONFavourites.swift in Sources */,
 				ECF3579B289343560066A6C3 /* MainLoadingView.swift in Sources */,
 				4D6E8FD628902FA200C6D6B5 /* LinesView.swift in Sources */,
 				ECDD308A28933A9D00683270 /* StopScheduleViewModel.swift in Sources */,
@@ -398,13 +407,16 @@
 				4D769D0228932BD2001FDC8B /* LinesViewModel.swift in Sources */,
 				4D38EBFE289405F10069E3BE /* FavouritesServiceProtocol.swift in Sources */,
 				4D6E8FD428902F9500C6D6B5 /* StopsView.swift in Sources */,
+				4D7106F92895DDA10001A6AE /* FavouritesStore.swift in Sources */,
 				ECF0EEF128916366006CC87F /* StopScheduleView.swift in Sources */,
+				4D73E2D728954ADE00343417 /* Favourites.swift in Sources */,
 				4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */,
 				4D6E8FD228902F5A00C6D6B5 /* FavouritesView.swift in Sources */,
 				4D769CFC2893222E001FDC8B /* StopsViewModel.swift in Sources */,
 				4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */,
 				4D6E8FDE28903AB900C6D6B5 /* Line.swift in Sources */,
 				4D769D042893340E001FDC8B /* JSONTiming.swift in Sources */,
+				4D7106F62895718D0001A6AE /* LineStopsViewModel.swift in Sources */,
 				4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */,
 				4D38EC002894089A0069E3BE /* FavouritesServiceMock.swift in Sources */,
 				4D769CFA28931BF7001FDC8B /* JSONStops.swift in Sources */,

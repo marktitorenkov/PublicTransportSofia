@@ -22,7 +22,7 @@ class SUMCServiceMock: SUMCServiceProtocol {
     
     var lines: [Line] {
         [
-            Line(id: LineIdentifier(name: "305", type: .bus), Stops: [
+            Line(id: LineIdentifier(name: "305", type: .bus), stops: [
                 [
                     Stop(id: "0004", name: "Blok 411", coordinate: Coordinate(x: 0, y: 0)),
                     Stop(id: "0005", name: "Blok 412", coordinate: Coordinate(x: 0, y: 0)),
@@ -34,10 +34,10 @@ class SUMCServiceMock: SUMCServiceProtocol {
                     Stop(id: "0009", name: "Blok 411", coordinate: Coordinate(x: 0, y: 0)),
                 ]
             ]),
-            Line(id: LineIdentifier(name: "213", type: .bus), Stops: []),
-            Line(id: LineIdentifier(name: "10", type: .tram), Stops: []),
-            Line(id: LineIdentifier(name: "4", type: .trolley), Stops: []),
-            Line(id: LineIdentifier(name: "4", type: .bus), Stops: []),
+            Line(id: LineIdentifier(name: "213", type: .bus), stops: []),
+            Line(id: LineIdentifier(name: "10", type: .tram), stops: []),
+            Line(id: LineIdentifier(name: "4", type: .trolley), stops: []),
+            Line(id: LineIdentifier(name: "4", type: .bus), stops: []),
         ]
     }
     

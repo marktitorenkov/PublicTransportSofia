@@ -5,47 +5,44 @@
 //  Created by Mark Titorenkov on 29.07.22.
 //
 
-import Foundation
+import SwiftUI
 
 class FavouritesViewModel: ObservableObject {
     
-    private let favouritesService: FavouritesServiceProtocol
-    @Published var stops: [Stop] = [] {
-        didSet { saveFavourites() }
+    let sumcService: SUMCServiceProtocol
+    @Binding var favourites: Favourites
+    
+    var stops: [Stop] {
+        favourites.stopCodes
+            .map({ code in sumcService.stops.first(where: { $0.code == code })
+                ?? Stop(id: code, name: "N/A", coordinate: Coordinate()) })
     }
     
-    @Published var lines: [Line] = [] {
-        didSet { saveFavourites() }
+    var lines: [Line] {
+        favourites.lineIds
+            .map({ id in sumcService.lines.first(where: { $0.id == id })
+                ?? Line(id: id, stops: []) })
     }
     
-    init(sumcService: SUMCServiceProtocol, favouritesService: FavouritesServiceProtocol) {
-        self.favouritesService = favouritesService
-        if let favourites = favouritesService.loadFavourites() {
-            self.stops = favourites.stopCodes.compactMap({ code in sumcService.stops.first(where: { $0.code == code }) })
-            self.lines = favourites.lineIds.compactMap({ id in sumcService.lines.first(where: { $0.id == id }) })
-        }
+    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>) {
+        self.sumcService = sumcService
+        self._favourites = favourites
     }
     
     func deleteStop(indexSet: IndexSet) {
-        stops.remove(atOffsets: indexSet)
-    }
-    
-    func moveStop(from: IndexSet, to: Int) {
-        stops.move(fromOffsets: from, toOffset: to)
+        favourites.stopCodes.remove(atOffsets: indexSet)
     }
     
     func deleteLine(indexSet: IndexSet) {
-        lines.remove(atOffsets: indexSet)
+        favourites.lineIds.remove(atOffsets: indexSet)
+    }
+    
+    func moveStop(from: IndexSet, to: Int) {
+        favourites.stopCodes.move(fromOffsets: from, toOffset: to)
     }
     
     func moveLine(from: IndexSet, to: Int) {
-        lines.move(fromOffsets: from, toOffset: to)
-    }
-    
-    private func saveFavourites() {
-        favouritesService.saveFavourites(favourites: Favourites(
-            stopCodes: stops.map(\.code),
-            lineIds: lines.map(\.id)))
+        favourites.lineIds.move(fromOffsets: from, toOffset: to)
     }
     
 }

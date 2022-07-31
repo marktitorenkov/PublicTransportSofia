@@ -11,7 +11,9 @@ import SwiftUI
 struct PublicTransportSofiaApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView(sumcService: SUMCService(), favouritesService: FavouritesService())
+            MainView(
+                sumcService: SUMCService(),
+                favouritesService: FavouritesService())
         }
     }
 }

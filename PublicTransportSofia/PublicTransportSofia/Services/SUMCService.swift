@@ -56,7 +56,7 @@ class SUMCService: SUMCServiceProtocol {
                 }
                 directions.append(direction)
             }
-            lines.append(Line(id: LineIdentifier(name: lineName, type: type), Stops: directions))
+            lines.append(Line(id: LineIdentifier(name: lineName, type: type), stops: directions))
         }
         return lines.sorted(by: { $0.id.name.localizedStandardCompare($1.id.name) == .orderedAscending })
     }

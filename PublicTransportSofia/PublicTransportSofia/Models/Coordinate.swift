@@ -11,6 +11,11 @@ struct Coordinate {
     let x: Double;
     let y: Double;
     
-    var lon: Double { get { return x } }
-    var lat: Double { get { return y } }
+    init(x: Double = 0, y: Double = 0) {
+        self.x = x
+        self.y = y
+    }
+    
+    var lon: Double { x }
+    var lat: Double { y }
 }

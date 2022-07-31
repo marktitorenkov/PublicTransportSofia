@@ -9,7 +9,7 @@ import Foundation
 
 class FavouritesServiceMock: FavouritesServiceProtocol {
     
-    private var favourites: Favourites?
+    private var favourites: Favourites
     
     init() {
         self.favourites = Favourites(
@@ -17,7 +17,7 @@ class FavouritesServiceMock: FavouritesServiceProtocol {
             lineIds: [LineIdentifier(name: "213", type: .bus)])
     }
     
-    func loadFavourites() -> Favourites? {
+    func loadFavourites() -> Favourites {
         return favourites
     }
     

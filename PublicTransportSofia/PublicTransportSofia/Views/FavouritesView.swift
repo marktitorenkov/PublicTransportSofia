@@ -10,13 +10,13 @@ import SwiftUI
 struct FavouritesView: View {
     
     @StateObject private var viewModel: FavouritesViewModel
-    private let sumcService: SUMCServiceProtocol
+    @Binding private var test: Favourites
     
-    init(sumcService: SUMCServiceProtocol, favouritesService: FavouritesServiceProtocol) {
+    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>) {
         self._viewModel = StateObject(wrappedValue: FavouritesViewModel(
             sumcService: sumcService,
-            favouritesService: favouritesService))
-        self.sumcService = sumcService
+            favourites: favourites))
+        self._test = favourites
     }
     
     var body: some View {
@@ -24,18 +24,24 @@ struct FavouritesView: View {
             List {
                 Section(header: Text("Stops")) {
                     ForEach(viewModel.stops) { stop in
-                        NavigationLink(destination: StopScheduleView(sumcService: sumcService, stop: stop)) {
-                            Text(stop.code)
-                        }
+                        NavigationLink(destination: StopScheduleView(
+                            sumcService: viewModel.sumcService,
+                            favourites: $viewModel.favourites,
+                            stop: stop)) {
+                                Text(stop.code)
+                            }
                     }
                     .onDelete(perform: viewModel.deleteStop)
                     .onMove(perform: viewModel.moveStop)
                 }
                 Section(header: Text("Lines")) {
                     ForEach(viewModel.lines) { line in
-                        NavigationLink(destination: LineStopsView(sumcService: sumcService, line: line)) {
-                            Text(line.id.name)
-                        }
+                        NavigationLink(destination: LineStopsView(
+                            sumcService: viewModel.sumcService,
+                            favourites: $viewModel.favourites,
+                            line: line)) {
+                                Text(line.id.name)
+                            }
                     }
                     .onDelete(perform: viewModel.deleteLine)
                     .onMove(perform: viewModel.moveLine)
@@ -49,6 +55,8 @@ struct FavouritesView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        FavouritesView(sumcService: SUMCServiceMock(), favouritesService: FavouritesServiceMock())
+        FavouritesView(
+            sumcService: SUMCServiceMock(),
+            favourites: .constant(FavouritesServiceMock().loadFavourites()))
     }
 }

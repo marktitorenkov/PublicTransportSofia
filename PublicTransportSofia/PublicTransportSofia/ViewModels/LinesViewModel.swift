@@ -5,15 +5,18 @@
 //  Created by Mark Titorenkov on 28.07.22.
 //
 
-import Foundation
+import SwiftUI
 
 class LinesViewModel: ObservableObject {
     
-    private let sumcService : SUMCServiceProtocol
+    let sumcService : SUMCServiceProtocol
+    @Binding var favourites: Favourites
+    
     @Published var searchText = ""
     
-    init(sumcService: SUMCServiceProtocol) {
+    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>) {
         self.sumcService = sumcService
+        self._favourites = favourites
     }
     
     var searchResultsByType: [LineType : [Line]] {

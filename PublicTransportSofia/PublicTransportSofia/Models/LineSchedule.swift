@@ -9,6 +9,6 @@ import Foundation
 
 struct LineSchedule: Identifiable {
     let id: LineIdentifier
-    var line: LineIdentifier {get { return id }}
+    var line: LineIdentifier { id }
     let arrivals: [Date]
 }

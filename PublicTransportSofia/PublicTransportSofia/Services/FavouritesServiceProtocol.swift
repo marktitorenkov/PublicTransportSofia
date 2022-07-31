@@ -9,7 +9,7 @@ import Foundation
 
 protocol FavouritesServiceProtocol {
     
-    func loadFavourites() -> Favourites?
+    func loadFavourites() -> Favourites
     
     func saveFavourites(favourites: Favourites) -> Void
     

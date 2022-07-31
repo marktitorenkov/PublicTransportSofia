@@ -10,18 +10,21 @@ import SwiftUI
 struct StopsView: View {
     
     @StateObject private var viewModel: StopsViewModel
-    private let sumcService: SUMCServiceProtocol
     
-    init(sumcService: SUMCServiceProtocol) {
-        self._viewModel = StateObject(wrappedValue: StopsViewModel(sumcService: sumcService))
-        self.sumcService = sumcService
+    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>) {
+        self._viewModel = StateObject(wrappedValue: StopsViewModel(
+            sumcService: sumcService,
+            favourites: favourites))
     }
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.searchResults) { stop in
-                    NavigationLink(destination: StopScheduleView(sumcService: sumcService, stop: stop)) {
+                    NavigationLink(destination: StopScheduleView(
+                        sumcService: viewModel.sumcService,
+                        favourites: $viewModel.favourites,
+                        stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
                     }
                 }
@@ -34,6 +37,8 @@ struct StopsView: View {
 
 struct StopsView_Previews: PreviewProvider {
     static var previews: some View {
-        StopsView(sumcService: SUMCServiceMock())
+        StopsView(
+            sumcService: SUMCServiceMock(),
+            favourites: .constant(FavouritesServiceMock().loadFavourites()))
     }
 }

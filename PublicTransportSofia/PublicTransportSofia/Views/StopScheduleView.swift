@@ -10,16 +10,17 @@ import SwiftUI
 struct StopScheduleView: View {
     
     @StateObject private var viewModel: StopScheduleViewModel
-    let stop: Stop
     
-    init(sumcService: SUMCServiceProtocol, stop: Stop) {
-        self._viewModel = StateObject(wrappedValue: StopScheduleViewModel(sumcService: sumcService))
-        self.stop = stop
+    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>, stop: Stop) {
+        self._viewModel = StateObject(wrappedValue: StopScheduleViewModel(
+            sumcService: sumcService,
+            favourites: favourites,
+            stop: stop))
     }
     
     var body: some View {
         VStack {
-            Text(stop.name)
+            Text(viewModel.stop.name)
                 .padding()
                 .multilineTextAlignment(.center)
             if (!viewModel.fetchedSumc) {
@@ -45,9 +46,12 @@ struct StopScheduleView: View {
                 .listStyle(.insetGrouped)
             }
         }
-        .navigationBarTitle("Stop \(stop.code)", displayMode: .inline)
+        .navigationBarTitle("Stop \(viewModel.stop.code)", displayMode: .inline)
+        .navigationBarItems(trailing: Button(action: { viewModel.favourited.toggle() }) {
+            Image(systemName: viewModel.favourited ? "star.fill" :  "star")
+        })
         .task {
-            try? await viewModel.fetchLineSchedule(stopCode: stop.code)
+            try? await viewModel.fetchLineSchedule()
         }
     }
 }
@@ -55,7 +59,10 @@ struct StopScheduleView: View {
 struct StopScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            StopScheduleView(sumcService: SUMCServiceMock(), stop: Stop(id: "2222", name: "Obshtina mladost", coordinate: Coordinate(x: 1, y: 2)))
+            StopScheduleView(
+                sumcService: SUMCServiceMock(),
+                favourites: .constant(FavouritesServiceMock().loadFavourites()),
+                stop: Stop(id: "2222", name: "Obshtina mladost", coordinate: Coordinate(x: 1, y: 2)))
         }
     }
 }

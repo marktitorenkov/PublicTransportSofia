@@ -10,11 +10,11 @@ import SwiftUI
 struct LinesView: View {
     
     @StateObject private var viewModel: LinesViewModel
-    private let sumcService: SUMCServiceProtocol
     
-    init(sumcService: SUMCServiceProtocol) {
-        self._viewModel = StateObject(wrappedValue: LinesViewModel(sumcService: sumcService))
-        self.sumcService = sumcService
+    init(sumcService: SUMCServiceProtocol, favourites: Binding<Favourites>) {
+        self._viewModel = StateObject(wrappedValue: LinesViewModel(
+            sumcService: sumcService,
+            favourites: favourites))
     }
     
     var body: some View {
@@ -23,7 +23,10 @@ struct LinesView: View {
                 ForEach(viewModel.searchResultsByType.keys.sorted(), id: \.self) { type in
                     Section(header: Text(type.description)) {
                         ForEach(viewModel.searchResultsByType[type] ?? []) { line in
-                            NavigationLink(destination: LineStopsView(sumcService: sumcService, line: line)) {
+                            NavigationLink(destination: LineStopsView(
+                                sumcService: viewModel.sumcService,
+                                favourites: $viewModel.favourites,
+                                line: line)) {
                                 Text(line.id.name)
                             }
                         }
@@ -38,6 +41,8 @@ struct LinesView: View {
 
 struct LinesView_Previews: PreviewProvider {
     static var previews: some View {
-        LinesView(sumcService: SUMCServiceMock())
+        LinesView(
+            sumcService: SUMCServiceMock(),
+            favourites: .constant(FavouritesServiceMock().loadFavourites()))
     }
 }

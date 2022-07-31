@@ -10,13 +10,13 @@ import SwiftUI
 struct MainView: View {
     
     @StateObject private var viewModel: MainViewModel
-    private let sumcService: SUMCServiceProtocol
-    private let favouritesService: FavouritesServiceProtocol
+    @StateObject private var favouritesStore: FavouritesStore
     
     init(sumcService: SUMCServiceProtocol, favouritesService: FavouritesServiceProtocol) {
-        self._viewModel = StateObject(wrappedValue: MainViewModel(sumcService: sumcService))
-        self.sumcService = sumcService
-        self.favouritesService = favouritesService
+        self._viewModel = StateObject(wrappedValue: MainViewModel(
+            sumcService: sumcService,
+            favouritesService: favouritesService))
+        self._favouritesStore = StateObject(wrappedValue: FavouritesStore(favouritesService: favouritesService))
     }
     
     var body: some View {
@@ -27,17 +27,17 @@ struct MainView: View {
                 }
         } else {
             TabView {
-                FavouritesView(sumcService: sumcService, favouritesService: favouritesService)
+                FavouritesView(sumcService: viewModel.sumcService, favourites: $viewModel.favourites)
                     .tabItem {
                         Image(systemName: "star.fill")
                         Text("Favourites")
                     }
-                StopsView(sumcService: sumcService)
+                StopsView(sumcService: viewModel.sumcService, favourites: $viewModel.favourites)
                     .tabItem {
                         Image(systemName: "train.side.middle.car")
                         Text("Stops")
                     }
-                LinesView(sumcService: sumcService)
+                LinesView(sumcService: viewModel.sumcService, favourites: $viewModel.favourites)
                     .tabItem {
                         Image(systemName: "bus.fill")
                         Text("Lines")
@@ -48,12 +48,15 @@ struct MainView: View {
                         Text("Notifications")
                     }
             }
+            .environmentObject(favouritesStore)
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(sumcService: SUMCServiceMock(), favouritesService: FavouritesServiceMock())
+        MainView(
+            sumcService: SUMCServiceMock(),
+            favouritesService: FavouritesServiceMock())
     }
 }

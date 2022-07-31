@@ -9,5 +9,5 @@ import Foundation
 
 struct Line: Identifiable {
     let id: LineIdentifier
-    let Stops: [[Stop]]
+    let stops: [[Stop]]
 }

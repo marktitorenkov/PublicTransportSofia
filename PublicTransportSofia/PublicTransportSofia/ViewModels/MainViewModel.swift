@@ -9,11 +9,17 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
-    private let sumcService : SUMCServiceProtocol
+    let sumcService: SUMCServiceProtocol
+    let favouritesService: FavouritesServiceProtocol
+    @Published var favourites: Favourites {
+        didSet { favouritesService.saveFavourites(favourites: favourites) }
+    }
     @Published var fetchedSumc: Bool = false
     
-    init(sumcService: SUMCServiceProtocol) {
+    init(sumcService: SUMCServiceProtocol, favouritesService: FavouritesServiceProtocol) {
         self.sumcService = sumcService
+        self.favouritesService = favouritesService
+        self.favourites = favouritesService.loadFavourites()
     }
     
     func fetchStaticData() async throws {
