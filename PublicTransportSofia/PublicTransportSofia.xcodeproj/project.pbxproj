@@ -32,6 +32,7 @@
 		4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */; };
 		4D769D0028932794001FDC8B /* SUMCServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */; };
 		4D769D042893340E001FDC8B /* JSONTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769D032893340E001FDC8B /* JSONTiming.swift */; };
+		4D86E93A28970F9200711B26 /* JSONSubwayTimetables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E93928970F9200711B26 /* JSONSubwayTimetables.swift */; };
 		4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8990DF2891C74E00672E63 /* LineStopsView.swift */; };
 		4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */; };
 		4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F9288FF15300A545A1 /* MainView.swift */; };
@@ -87,6 +88,7 @@
 		4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceProtocol.swift; sourceTree = "<group>"; };
 		4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceMock.swift; sourceTree = "<group>"; };
 		4D769D032893340E001FDC8B /* JSONTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTiming.swift; sourceTree = "<group>"; };
+		4D86E93928970F9200711B26 /* JSONSubwayTimetables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSubwayTimetables.swift; sourceTree = "<group>"; };
 		4D8990DF2891C74E00672E63 /* LineStopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsView.swift; sourceTree = "<group>"; };
 		4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PublicTransportSofia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaApp.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				4D769CF928931BF7001FDC8B /* JSONStops.swift */,
 				4D769D032893340E001FDC8B /* JSONTiming.swift */,
 				4D38EBF9289400C00069E3BE /* JSONFavourites.swift */,
+				4D86E93928970F9200711B26 /* JSONSubwayTimetables.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				4D7106F92895DDA10001A6AE /* FavouritesStore.swift in Sources */,
 				ECF0EEF128916366006CC87F /* StopScheduleView.swift in Sources */,
 				4D73E2D728954ADE00343417 /* Favourites.swift in Sources */,
+				4D86E93A28970F9200711B26 /* JSONSubwayTimetables.swift in Sources */,
 				4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */,
 				4D6E8FD228902F5A00C6D6B5 /* FavouritesView.swift in Sources */,
 				4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */,

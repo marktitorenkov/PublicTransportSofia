@@ -70,12 +70,18 @@ class SUMCService: SUMCServiceProtocol {
     }
     
     func fetchSchedule(stopCode: String) async -> [LineSchedule] {
-        guard
-            let (timingData, _) = try? await URLSession.shared.data(from: URL(string: String(format: timingUrl, stopCode))!),
-            let timingJSON = try? JSONDecoder().decode(JSONTiming.self, from: timingData)
-        else {
-            return []
+        if let schedule = try? await fetchDefaultSchedule(stopCode: stopCode) {
+            return schedule
         }
+        if let schedule = try? await fetchSubwaySchedule(stopCode: stopCode) {
+            return schedule
+        }
+        return []
+    }
+    
+    private func fetchDefaultSchedule(stopCode: String) async throws -> [LineSchedule] {
+        let (timingData, _) = try await URLSession.shared.data(from: URL(string: String(format: timingUrl, stopCode))!)
+        let timingJSON = try JSONDecoder().decode(JSONTiming.self, from: timingData)
         
         var lineSchedules: [LineSchedule] = []
         for lineJSON in timingJSON.lines {
@@ -91,10 +97,47 @@ class SUMCService: SUMCServiceProtocol {
         return lineSchedules
     }
     
+    private func fetchSubwaySchedule(stopCode: String) async throws -> [LineSchedule] {
+        let (subwayTimetablesData, _) = try await URLSession.shared.data(from: URL(string: subwayTimetablesUrl)!)
+        let subwayTimetablesJSON = try JSONDecoder().decode(JSONSubwayTimetables.self, from: subwayTimetablesData)
+        
+        let now = Date()
+        let weekday = Calendar.current.component(.weekday, from: (now - 1 * 60 * 60))
+        let arrivals = weekday >= 2 && weekday <= 6
+        ? subwayTimetablesJSON.weekday
+        : subwayTimetablesJSON.weekend
+        
+        let timetables = arrivals.mapValues({ lines in
+            return lines.map({ (key, value) in
+                return LineSchedule(
+                    id: LineIdentifier(name: key, type: .metro),
+                    arrivals: value
+                        .compactMap({ createArrivalDate(arrivalString: $0) })
+                        .filter({ $0 > now && $0 < now + 1 * 60 * 60 }))
+            })
+            .filter({ !$0.arrivals.isEmpty })
+        })
+        
+        if let schedule = timetables[stopCode] {
+            return schedule
+        }
+        return []
+    }
+    
     private func createArrivalDate(arrivalString: String) -> Date? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        guard let arrivalTime = formatter.date(from: arrivalString) else { return nil }
+        var arrivalTime: Date? = nil
+        
+        if arrivalTime == nil {
+            formatter.dateFormat = "HH:mm:ss"
+            arrivalTime = formatter.date(from: arrivalString)
+        }
+        if arrivalTime == nil {
+            formatter.dateFormat = "HH:mm"
+            arrivalTime = formatter.date(from: arrivalString)
+        }
+        
+        guard let arrivalTime = arrivalTime else { return nil }
         let now = Date()
         var nowComponents = Calendar.current.dateComponents([.year, .month, .day], from: now)
         let arrivalComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: arrivalTime)
