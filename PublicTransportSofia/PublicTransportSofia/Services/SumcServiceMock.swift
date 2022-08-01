@@ -1,5 +1,5 @@
 //
-//  SUMCServiceMock.swift
+//  SumcServiceMock.swift
 //  PublicTransportSofia
 //
 //  Created by Mark Titorenkov on 28.07.22.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class SUMCServiceMock: SUMCServiceProtocol {
+class SumcServiceMock: SumcServiceProtocol {
     
-    private var data = SUMCData(
+    private var data = SumcData(
         stops: [
             Stop(id: "2224", name: "Община младост", coordinate: Coordinate(x: 0, y: 0)),
             Stop(id: "0012", name: "Test 0012", coordinate: Coordinate(x: 1, y: 1)),
@@ -36,11 +36,11 @@ class SUMCServiceMock: SUMCServiceProtocol {
             Line(id: LineIdentifier(name: "4", type: .bus), stops: []),
         ])
     
-    var initialData: SUMCData { self.data }
+    var initialData: SumcData { self.data }
     
-    func fetchStaticData() async throws -> SUMCData { self.data }
+    func fetchStaticData() async throws -> SumcData { self.data }
     
-    func fetchSchedule(stopCode: String) async -> [LineSchedule] {
+    func fetchSchedule(sumcData: SumcData, stopCode: String) async -> [LineSchedule] {
         [
             LineSchedule(id: LineIdentifier(name: "305", type: .bus), arrivals: [Date() + 100, Date() + 5 * 60, Date() + 15 * 60]),
             LineSchedule(id: LineIdentifier(name: "10", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),

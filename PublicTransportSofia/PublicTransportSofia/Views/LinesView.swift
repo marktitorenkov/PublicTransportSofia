@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LinesView: View {
     
-    @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @EnvironmentObject var sumcDataStore: SumcDataStore
     @StateObject var viewModel: LinesViewModel = LinesViewModel()
     
     var body: some View {
@@ -36,6 +36,6 @@ struct LinesView: View {
 struct LinesView_Previews: PreviewProvider {
     static var previews: some View {
         LinesView()
-            .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
+            .environmentObject(SumcDataStore(sumcService: SumcServiceMock()))
     }
 }

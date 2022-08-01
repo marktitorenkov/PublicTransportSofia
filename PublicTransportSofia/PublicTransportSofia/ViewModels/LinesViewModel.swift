@@ -16,7 +16,7 @@ class LinesViewModel: ObservableObject {
     
     @Published var searchText = ""
     
-    func getSearchResults(_ sumcDataStore: SUMCDataStore) -> [LinesByType] {
+    func getSearchResults(_ sumcDataStore: SumcDataStore) -> [LinesByType] {
         Dictionary(grouping: getSearchResults(sumcDataStore), by: { $0.id.type })
             .map { (key, value) in
                 LinesByType(id: key, lines: value)
@@ -26,7 +26,7 @@ class LinesViewModel: ObservableObject {
             }
     }
     
-    private func getSearchResults(_ sumcDataStore: SUMCDataStore) -> [Line] {
+    private func getSearchResults(_ sumcDataStore: SumcDataStore) -> [Line] {
         if searchText.isEmpty {
             return sumcDataStore.lines
         } else {

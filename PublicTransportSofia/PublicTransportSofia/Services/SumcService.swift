@@ -1,5 +1,5 @@
 //
-//  SUMCService.swift
+//  SumcService.swift
 //  PublicTransportSofia
 //
 //  Created by Mark Titorenkov on 28.07.22.
@@ -7,23 +7,26 @@
 
 import Foundation
 
-class SUMCService: SUMCServiceProtocol {
+class SumcService: SumcServiceProtocol {
     
-    private let routesUrl = "https://cukii.me/sumc/cache/routes.json"
-    private let stopsUrl = "https://cukii.me/sumc/cache/stops-bg.json"
+    private let api: SumcApiServiceProtocol
     
-    private let subwayTimetablesUrl = "https://cukii.me/sumc/cache/subway-timetables.json"
-    private let timingUrl = "https://cukii.me/sumc/api/timing/%1$@"
+    init(api: SumcApiServiceProtocol) {
+        self.api = api
+    }
     
-    var initialData: SUMCData { SUMCData() }
+    var initialData: SumcData {
+        return SumcData()
+    }
     
-    func fetchStaticData() async throws -> SUMCData {
-        async let (stopsDataAsync, _) = URLSession.shared.data(from: URL(string: stopsUrl)!)
-        async let (routesDataAsync, _) = URLSession.shared.data(from: URL(string: routesUrl)!)
-        
-        let (stopsData, routesData) = await (try stopsDataAsync, try routesDataAsync)
-        let routesJSON = try JSONDecoder().decode(JSONRoutes.self, from: routesData)
-        let stopsJSON = try JSONDecoder().decode(JSONStops.self, from: stopsData)
+    func fetchStaticData() async throws -> SumcData {
+        let (
+            stopsJSON,
+            routesJSON
+        ) = await (
+            try api.fetchStps(),
+            try api.fetchRoutes()
+        )
         
         var stopsDict: [String : Stop] = [:]
         for (code, stopJSON) in stopsJSON {
@@ -40,7 +43,7 @@ class SUMCService: SUMCServiceProtocol {
         lines.append(contentsOf: createLinesForType(routes: routesJSON.tram, type: .tram, stops: stopsDict))
         lines.append(contentsOf: createLinesForType(routes: routesJSON.trolley, type: .trolley, stops: stopsDict))
         
-        return SUMCData(stops: stops, lines: lines)
+        return SumcData(stops: stops, lines: lines)
     }
     
     private func createLinesForType(routes: [String: [JSONRoutesStops]], type: LineType, stops: [String : Stop], nameMapping: [String : String]? = nil) -> [Line] {
@@ -69,19 +72,18 @@ class SUMCService: SUMCServiceProtocol {
         }
     }
     
-    func fetchSchedule(stopCode: String) async -> [LineSchedule] {
+    func fetchSchedule(sumcData: SumcData, stopCode: String) async -> [LineSchedule] {
         if let schedule = try? await fetchDefaultSchedule(stopCode: stopCode) {
             return schedule
         }
-        if let schedule = try? await fetchSubwaySchedule(stopCode: stopCode) {
+        if let schedule = try? await fetchSubwaySchedule(sumcData: sumcData, stopCode: stopCode) {
             return schedule
         }
         return []
     }
     
     private func fetchDefaultSchedule(stopCode: String) async throws -> [LineSchedule] {
-        let (timingData, _) = try await URLSession.shared.data(from: URL(string: String(format: timingUrl, stopCode))!)
-        let timingJSON = try JSONDecoder().decode(JSONTiming.self, from: timingData)
+        let timingJSON = try await api.fetchTiming(stopCode: stopCode)
         
         var lineSchedules: [LineSchedule] = []
         for lineJSON in timingJSON.lines {
@@ -97,9 +99,8 @@ class SUMCService: SUMCServiceProtocol {
         return lineSchedules
     }
     
-    private func fetchSubwaySchedule(stopCode: String) async throws -> [LineSchedule] {
-        let (subwayTimetablesData, _) = try await URLSession.shared.data(from: URL(string: subwayTimetablesUrl)!)
-        let subwayTimetablesJSON = try JSONDecoder().decode(JSONSubwayTimetables.self, from: subwayTimetablesData)
+    private func fetchSubwaySchedule(sumcData: SumcData, stopCode: String) async throws -> [LineSchedule] {
+        let subwayTimetablesJSON = try await api.fetchSubwayTimetables()
         
         let now = Date()
         let weekday = Calendar.current.component(.weekday, from: (now - 1 * 60 * 60))
@@ -107,10 +108,12 @@ class SUMCService: SUMCServiceProtocol {
         ? subwayTimetablesJSON.weekday
         : subwayTimetablesJSON.weekend
         
-        let timetables = arrivals.mapValues({ lines in
-            return lines.map({ (key, value) in
+        let timetables = arrivals.mapValues({ lines -> [LineSchedule] in
+            return lines.map({ (key, value) -> LineSchedule in
+                let displayName = sumcData.lines.first(where: { $0.id.name == key })?.displayName
                 return LineSchedule(
                     id: LineIdentifier(name: key, type: .metro),
+                    displayName: displayName,
                     arrivals: value
                         .compactMap({ createArrivalDate(arrivalString: $0) })
                         .filter({ $0 > now && $0 < now + 1 * 60 * 60 }))

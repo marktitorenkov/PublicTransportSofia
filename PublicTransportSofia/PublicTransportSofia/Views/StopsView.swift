@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StopsView: View {
     
-    @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @EnvironmentObject var sumcDataStore: SumcDataStore
     @StateObject var viewModel: StopsViewModel = StopsViewModel()
     @StateObject var locationManager = LocationManager()
     
@@ -47,6 +47,6 @@ struct StopsView: View {
 struct StopsView_Previews: PreviewProvider {
     static var previews: some View {
         StopsView()
-            .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
+            .environmentObject(SumcDataStore(sumcService: SumcServiceMock()))
     }
 }

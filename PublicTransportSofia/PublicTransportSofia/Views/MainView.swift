@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @EnvironmentObject var sumcDataStore: SumcDataStore
     @EnvironmentObject var favouritesStore: FavouritesStore
     @StateObject var viewModel: MainViewModel = MainViewModel()
     
@@ -50,7 +50,7 @@ struct MainView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
+            .environmentObject(SumcDataStore(sumcService: SumcServiceMock()))
             .environmentObject(FavouritesStore(favouritesService: FavouritesServiceMock()))
     }
 }

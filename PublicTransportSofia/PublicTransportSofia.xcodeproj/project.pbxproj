@@ -22,15 +22,15 @@
 		4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FE128903BED00C6D6B5 /* LineType.swift */; };
 		4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */; };
 		4D7106F92895DDA10001A6AE /* FavouritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7106F82895DDA10001A6AE /* FavouritesStore.swift */; };
-		4D730360289673AC00AE4286 /* SUMCDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73035F289673AC00AE4286 /* SUMCDataStore.swift */; };
-		4D730362289673E300AE4286 /* SUMCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D730361289673E300AE4286 /* SUMCData.swift */; };
+		4D730360289673AC00AE4286 /* SumcDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73035F289673AC00AE4286 /* SumcDataStore.swift */; };
+		4D730362289673E300AE4286 /* SumcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D730361289673E300AE4286 /* SumcData.swift */; };
 		4D7303642896856400AE4286 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7303632896856400AE4286 /* AppView.swift */; };
 		4D73E2D728954ADE00343417 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73E2D628954ADE00343417 /* Favourites.swift */; };
-		4D769CF528930E80001FDC8B /* SUMCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF428930E80001FDC8B /* SUMCService.swift */; };
+		4D769CF528930E80001FDC8B /* SumcService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF428930E80001FDC8B /* SumcService.swift */; };
 		4D769CF828931379001FDC8B /* JSONRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF728931379001FDC8B /* JSONRoutes.swift */; };
 		4D769CFA28931BF7001FDC8B /* JSONStops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CF928931BF7001FDC8B /* JSONStops.swift */; };
-		4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */; };
-		4D769D0028932794001FDC8B /* SUMCServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */; };
+		4D769CFE289326FC001FDC8B /* SumcServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFD289326FC001FDC8B /* SumcServiceProtocol.swift */; };
+		4D769D0028932794001FDC8B /* SumcServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFF28932794001FDC8B /* SumcServiceMock.swift */; };
 		4D769D042893340E001FDC8B /* JSONTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769D032893340E001FDC8B /* JSONTiming.swift */; };
 		4D86E93A28970F9200711B26 /* JSONSubwayTimetables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E93928970F9200711B26 /* JSONSubwayTimetables.swift */; };
 		4D86E93E28972FF200711B26 /* StopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E93D28972FF200711B26 /* StopsViewModel.swift */; };
@@ -41,6 +41,9 @@
 		4D86E94A2897AA8F00711B26 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E9492897AA8F00711B26 /* MainViewModel.swift */; };
 		4D86E94C2897BBA100711B26 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E94B2897BBA100711B26 /* LocationManager.swift */; };
 		4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8990DF2891C74E00672E63 /* LineStopsView.swift */; };
+		4DE71D9B289856A80081EF1D /* SumcApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE71D9A289856A80081EF1D /* SumcApiServiceProtocol.swift */; };
+		4DE71D9D289856DB0081EF1D /* SumcApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE71D9C289856DB0081EF1D /* SumcApiService.swift */; };
+		4DE71D9F289857C00081EF1D /* SumcApiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE71D9E289857C00081EF1D /* SumcApiServiceMock.swift */; };
 		4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */; };
 		4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F9288FF15300A545A1 /* MainView.swift */; };
 		4DEDE6FC288FF15500A545A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDE6FB288FF15500A545A1 /* Assets.xcassets */; };
@@ -86,15 +89,15 @@
 		4D6E8FE128903BED00C6D6B5 /* LineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineType.swift; sourceTree = "<group>"; };
 		4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSchedule.swift; sourceTree = "<group>"; };
 		4D7106F82895DDA10001A6AE /* FavouritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesStore.swift; sourceTree = "<group>"; };
-		4D73035F289673AC00AE4286 /* SUMCDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCDataStore.swift; sourceTree = "<group>"; };
-		4D730361289673E300AE4286 /* SUMCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCData.swift; sourceTree = "<group>"; };
+		4D73035F289673AC00AE4286 /* SumcDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcDataStore.swift; sourceTree = "<group>"; };
+		4D730361289673E300AE4286 /* SumcData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcData.swift; sourceTree = "<group>"; };
 		4D7303632896856400AE4286 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		4D73E2D628954ADE00343417 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
-		4D769CF428930E80001FDC8B /* SUMCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCService.swift; sourceTree = "<group>"; };
+		4D769CF428930E80001FDC8B /* SumcService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcService.swift; sourceTree = "<group>"; };
 		4D769CF728931379001FDC8B /* JSONRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRoutes.swift; sourceTree = "<group>"; };
 		4D769CF928931BF7001FDC8B /* JSONStops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStops.swift; sourceTree = "<group>"; };
-		4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceProtocol.swift; sourceTree = "<group>"; };
-		4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceMock.swift; sourceTree = "<group>"; };
+		4D769CFD289326FC001FDC8B /* SumcServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcServiceProtocol.swift; sourceTree = "<group>"; };
+		4D769CFF28932794001FDC8B /* SumcServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcServiceMock.swift; sourceTree = "<group>"; };
 		4D769D032893340E001FDC8B /* JSONTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTiming.swift; sourceTree = "<group>"; };
 		4D86E93928970F9200711B26 /* JSONSubwayTimetables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSubwayTimetables.swift; sourceTree = "<group>"; };
 		4D86E93D28972FF200711B26 /* StopsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +108,9 @@
 		4D86E9492897AA8F00711B26 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4D86E94B2897BBA100711B26 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4D8990DF2891C74E00672E63 /* LineStopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsView.swift; sourceTree = "<group>"; };
+		4DE71D9A289856A80081EF1D /* SumcApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcApiServiceProtocol.swift; sourceTree = "<group>"; };
+		4DE71D9C289856DB0081EF1D /* SumcApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcApiService.swift; sourceTree = "<group>"; };
+		4DE71D9E289857C00081EF1D /* SumcApiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcApiServiceMock.swift; sourceTree = "<group>"; };
 		4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PublicTransportSofia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaApp.swift; sourceTree = "<group>"; };
 		4DEDE6F9288FF15300A545A1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -167,13 +173,13 @@
 				4D769CF62893136C001FDC8B /* JSON */,
 				4D6E8FDB289038FE00C6D6B5 /* Coordinate.swift */,
 				4D6E8FD92890377700C6D6B5 /* Stop.swift */,
+				EC588C82289811F500885F91 /* StopWithDistance.swift */,
 				4D6E8FDD28903AB900C6D6B5 /* Line.swift */,
 				4D6E8FDF28903BB800C6D6B5 /* LineIdentifier.swift */,
 				4D6E8FE128903BED00C6D6B5 /* LineType.swift */,
 				4D6E8FE328903E5600C6D6B5 /* LineSchedule.swift */,
 				4D73E2D628954ADE00343417 /* Favourites.swift */,
-				4D730361289673E300AE4286 /* SUMCData.swift */,
-				EC588C82289811F500885F91 /* StopWithDistance.swift */,
+				4D730361289673E300AE4286 /* SumcData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				4D7106F82895DDA10001A6AE /* FavouritesStore.swift */,
-				4D73035F289673AC00AE4286 /* SUMCDataStore.swift */,
+				4D73035F289673AC00AE4286 /* SumcDataStore.swift */,
 				4D86E94B2897BBA100711B26 /* LocationManager.swift */,
 				4D86E9492897AA8F00711B26 /* MainViewModel.swift */,
 				4D86E9432897A0CC00711B26 /* FavouritesViewModel.swift */,
@@ -197,9 +203,12 @@
 		4D769CF328930E61001FDC8B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4D769CFD289326FC001FDC8B /* SUMCServiceProtocol.swift */,
-				4D769CF428930E80001FDC8B /* SUMCService.swift */,
-				4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */,
+				4DE71D9A289856A80081EF1D /* SumcApiServiceProtocol.swift */,
+				4DE71D9C289856DB0081EF1D /* SumcApiService.swift */,
+				4DE71D9E289857C00081EF1D /* SumcApiServiceMock.swift */,
+				4D769CFD289326FC001FDC8B /* SumcServiceProtocol.swift */,
+				4D769CF428930E80001FDC8B /* SumcService.swift */,
+				4D769CFF28932794001FDC8B /* SumcServiceMock.swift */,
 				4D38EBFD289405F10069E3BE /* FavouritesServiceProtocol.swift */,
 				4D38EBF7289400A10069E3BE /* FavouritesService.swift */,
 				4D38EBFF2894089A0069E3BE /* FavouritesServiceMock.swift */,
@@ -410,15 +419,15 @@
 			files = (
 				4D6E8FDA2890377700C6D6B5 /* Stop.swift in Sources */,
 				4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */,
-				4D769CF528930E80001FDC8B /* SUMCService.swift in Sources */,
-				4D769D0028932794001FDC8B /* SUMCServiceMock.swift in Sources */,
+				4D769CF528930E80001FDC8B /* SumcService.swift in Sources */,
+				4D769D0028932794001FDC8B /* SumcServiceMock.swift in Sources */,
 				4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */,
-				4D730360289673AC00AE4286 /* SUMCDataStore.swift in Sources */,
+				4D730360289673AC00AE4286 /* SumcDataStore.swift in Sources */,
 				4D38EBFA289400C00069E3BE /* JSONFavourites.swift in Sources */,
 				ECF3579B289343560066A6C3 /* MainLoadingView.swift in Sources */,
 				4D7303642896856400AE4286 /* AppView.swift in Sources */,
 				4D6E8FD628902FA200C6D6B5 /* LinesView.swift in Sources */,
-				4D730362289673E300AE4286 /* SUMCData.swift in Sources */,
+				4D730362289673E300AE4286 /* SumcData.swift in Sources */,
 				4D769CF828931379001FDC8B /* JSONRoutes.swift in Sources */,
 				4D6E8FDC289038FE00C6D6B5 /* Coordinate.swift in Sources */,
 				4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */,
@@ -436,15 +445,18 @@
 				4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */,
 				4D86E9402897344900711B26 /* LinesViewModel.swift in Sources */,
 				4D6E8FDE28903AB900C6D6B5 /* Line.swift in Sources */,
+				4DE71D9B289856A80081EF1D /* SumcApiServiceProtocol.swift in Sources */,
 				4D86E9442897A0CC00711B26 /* FavouritesViewModel.swift in Sources */,
+				4DE71D9F289857C00081EF1D /* SumcApiServiceMock.swift in Sources */,
 				4D86E9462897A1C200711B26 /* StopScheduleViewModel.swift in Sources */,
+				4DE71D9D289856DB0081EF1D /* SumcApiService.swift in Sources */,
 				4D769D042893340E001FDC8B /* JSONTiming.swift in Sources */,
 				4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */,
 				4D38EC002894089A0069E3BE /* FavouritesServiceMock.swift in Sources */,
 				4D769CFA28931BF7001FDC8B /* JSONStops.swift in Sources */,
 				4D86E9482897A86C00711B26 /* LineStopsViewModel.swift in Sources */,
 				4D38EBF8289400A10069E3BE /* FavouritesService.swift in Sources */,
-				4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */,
+				4D769CFE289326FC001FDC8B /* SumcServiceProtocol.swift in Sources */,
 				4D86E94C2897BBA100711B26 /* LocationManager.swift in Sources */,
 				4D6E8FD828902FB900C6D6B5 /* NotificationsView.swift in Sources */,
 			);

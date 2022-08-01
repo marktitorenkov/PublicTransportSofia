@@ -10,7 +10,7 @@ import SwiftUI
 struct FavouritesView: View {
     
     @EnvironmentObject var favouritesStore: FavouritesStore
-    @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @EnvironmentObject var sumcDataStore: SumcDataStore
     @StateObject var viewModel: FavouritesViewModel = FavouritesViewModel()
     
     var body: some View {
@@ -46,7 +46,7 @@ struct FavouritesView: View {
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         FavouritesView()
-            .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
+            .environmentObject(SumcDataStore(sumcService: SumcServiceMock()))
             .environmentObject(FavouritesStore(favouritesService: FavouritesServiceMock()))
     }
 }

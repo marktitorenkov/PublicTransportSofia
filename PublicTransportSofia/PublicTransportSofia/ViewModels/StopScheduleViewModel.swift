@@ -23,7 +23,7 @@ class StopScheduleViewModel: ObservableObject {
         return URL(string: "maps://?saddr=&daddr=\(stop.coordinate.lat),\(stop.coordinate.lon)")!
     }
     
-    func fetchLineSchedule(_ sumcDataStore: SUMCDataStore, stop: Stop) async -> () {
+    func fetchLineSchedule(_ sumcDataStore: SumcDataStore, stop: Stop) async -> () {
         let schedules = await sumcDataStore.fetchLineSchedule(stopCode: stop.code)
         await MainActor.run {
             self.schedules = schedules

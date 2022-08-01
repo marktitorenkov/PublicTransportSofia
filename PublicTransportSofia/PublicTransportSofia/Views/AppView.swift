@@ -10,7 +10,7 @@ import SwiftUI
 // Used to setup all dependencies
 struct AppView: View {
     
-    @StateObject var sumcDataStore = SUMCDataStore(sumcService: SUMCService())
+    @StateObject var sumcDataStore = SumcDataStore(sumcService: SumcService(api: SumcApiService()))
     @StateObject var favouritesStore = FavouritesStore(favouritesService: FavouritesService())
     
     var body: some View {

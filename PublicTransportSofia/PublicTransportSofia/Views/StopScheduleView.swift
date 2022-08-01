@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StopScheduleView: View {
     
-    @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @EnvironmentObject var sumcDataStore: SumcDataStore
     @EnvironmentObject var favouritesStore: FavouritesStore
     @StateObject var viewModel: StopScheduleViewModel = StopScheduleViewModel()
     let stop: Stop
@@ -24,7 +24,7 @@ struct StopScheduleView: View {
             if viewModel.lineSchedulesLoaded {
                 List {
                     ForEach(viewModel.lineSchedules) { schedule in
-                        Section(header: Text(schedule.line.name).font(.headline)) {
+                        Section(header: Text(schedule.displayName).font(.headline)) {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
                                     ForEach(schedule.arrivals, id: \.self) { arrival in
@@ -60,7 +60,7 @@ struct StopScheduleView_Previews: PreviewProvider {
         NavigationView {
             StopScheduleView(
                 stop: Stop(id: "2222", name: "Obshtina mladost", coordinate: Coordinate(x: 1, y: 2)))
-            .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
+            .environmentObject(SumcDataStore(sumcService: SumcServiceMock()))
             .environmentObject(FavouritesStore(favouritesService: FavouritesServiceMock()))
         }
     }

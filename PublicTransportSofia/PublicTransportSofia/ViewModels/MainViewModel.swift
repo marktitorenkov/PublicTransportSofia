@@ -11,7 +11,7 @@ class MainViewModel: ObservableObject {
     
     @Published var sumcFetched = false
     
-    func fetchSumcData(_ sumcDataStore: SUMCDataStore) async {
+    func fetchSumcData(_ sumcDataStore: SumcDataStore) async {
         try? await sumcDataStore.fetchStaticData()
         await MainActor.run {
             sumcFetched = true

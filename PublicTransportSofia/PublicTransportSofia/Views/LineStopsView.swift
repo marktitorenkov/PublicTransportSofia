@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LineStopsView: View {
     
-    @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @EnvironmentObject var sumcDataStore: SumcDataStore
     @EnvironmentObject var favouritesStore: FavouritesStore
     @StateObject var viewModel: LineStopsViewModel = LineStopsViewModel()
     let line: Line
@@ -55,7 +55,7 @@ struct LineStopsView_Previews: PreviewProvider {
                     ],
                 ]))
         }
-        .environmentObject(SUMCDataStore(sumcService: SUMCServiceMock()))
+        .environmentObject(SumcDataStore(sumcService: SumcServiceMock()))
         .environmentObject(FavouritesStore(favouritesService: FavouritesServiceMock()))
     }
 }

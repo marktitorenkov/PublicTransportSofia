@@ -1,5 +1,5 @@
 //
-//  SUMCDataStore.swift
+//  SumcDataStore.swift
 //  PublicTransportSofia
 //
 //  Created by Mark Titorenkov on 31.07.22.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-class SUMCDataStore: ObservableObject {
+class SumcDataStore: ObservableObject {
     
-    let sumcService: SUMCServiceProtocol
-    @Published private(set) var sumcData: SUMCData
+    let sumcService: SumcServiceProtocol
+    @Published private(set) var sumcData: SumcData
     
-    init(sumcService: SUMCServiceProtocol) {
+    init(sumcService: SumcServiceProtocol) {
         self.sumcService = sumcService
         self.sumcData = sumcService.initialData
     }
@@ -28,7 +28,7 @@ class SUMCDataStore: ObservableObject {
     }
     
     func fetchLineSchedule(stopCode: String) async -> [LineSchedule] {
-        return await self.sumcService.fetchSchedule(stopCode: stopCode)
+        return await self.sumcService.fetchSchedule(sumcData: sumcData, stopCode: stopCode)
     }
     
 }
