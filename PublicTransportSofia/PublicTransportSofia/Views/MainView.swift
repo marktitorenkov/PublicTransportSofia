@@ -11,11 +11,10 @@ struct MainView: View {
     
     @EnvironmentObject var sumcDataStore: SUMCDataStore
     @EnvironmentObject var favouritesStore: FavouritesStore
-    
-    @State var sumcFetched = false
+    @StateObject var viewModel: MainViewModel = MainViewModel()
     
     var body: some View {
-        if sumcFetched {
+        if viewModel.sumcFetched {
             TabView {
                 FavouritesView()
                     .tabItem {
@@ -42,8 +41,7 @@ struct MainView: View {
         } else {
             MainLoadingView()
                 .task {
-                    try? await sumcDataStore.fetchStaticData()
-                    sumcFetched = true
+                    await viewModel.fetchSumcData(sumcDataStore)
                 }
         }
     }

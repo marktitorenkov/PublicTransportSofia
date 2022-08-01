@@ -9,25 +9,24 @@ import SwiftUI
 
 struct StopScheduleView: View {
     
-    let stop: Stop
     @EnvironmentObject var sumcDataStore: SUMCDataStore
     @EnvironmentObject var favouritesStore: FavouritesStore
-    
-    @State var lineSchedules: [LineSchedule]? = nil
+    @StateObject var viewModel: StopScheduleViewModel = StopScheduleViewModel()
+    let stop: Stop
     
     var body: some View {
         VStack {
             Text(stop.name)
                 .padding()
                 .multilineTextAlignment(.center)
-            if let schedules = lineSchedules {
+            if viewModel.lineSchedulesLoaded {
                 List {
-                    ForEach(schedules) { schedule in
+                    ForEach(viewModel.lineSchedules) { schedule in
                         Section(header: Text(schedule.line.name).font(.headline)) {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
                                     ForEach(schedule.arrivals, id: \.self) { arrival in
-                                        Button(arrivalFormat(arrival), action: {})
+                                        Button(viewModel.arrivalFormat(arrival), action: {})
                                             .buttonStyle(.bordered)
                                             .controlSize(.large)
                                             .padding(5)
@@ -48,14 +47,8 @@ struct StopScheduleView: View {
             Image(systemName: favouritesStore.getStop(code: stop.code) ? "star.fill" :  "star")
         })
         .task {
-            lineSchedules = await sumcDataStore.fetchLineSchedule(stopCode: stop.code)
+            await viewModel.fetchLineSchedule(sumcDataStore, stop: stop)
         }
-    }
-    
-    func arrivalFormat(_ arrival: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter.string(from: arrival)
     }
     
 }

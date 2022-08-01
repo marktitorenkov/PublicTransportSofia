@@ -10,15 +10,14 @@ import SwiftUI
 struct LinesView: View {
     
     @EnvironmentObject var sumcDataStore: SUMCDataStore
-    
-    @State var searchText = ""
+    @StateObject var viewModel: LinesViewModel = LinesViewModel()
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(searchResultsByType.keys.sorted(), id: \.self) { type in
-                    Section(header: Text(type.description)) {
-                        ForEach(searchResultsByType[type] ?? []) { line in
+                ForEach(viewModel.getSearchResults(sumcDataStore)) { lineByType in
+                    Section(header: Text(lineByType.id.description)) {
+                        ForEach(lineByType.lines) { line in
                             NavigationLink(destination: LineStopsView(line: line)) {
                                 Text(line.displayName)
                                     .lineLimit(1)
@@ -27,22 +26,8 @@ struct LinesView: View {
                     }
                 }
             }
-            .searchable(text: $searchText)
+            .searchable(text: $viewModel.searchText)
             .navigationTitle("Lines")
-        }
-    }
-    
-    var searchResultsByType: [LineType : [Line]] {
-        Dictionary(grouping: searchResults, by: { $0.id.type })
-    }
-    
-    var searchResults: [Line] {
-        if searchText.isEmpty {
-            return sumcDataStore.lines
-        } else {
-            return sumcDataStore.lines.filter {
-                $0.id.name.contains(searchText)
-            }
         }
     }
     

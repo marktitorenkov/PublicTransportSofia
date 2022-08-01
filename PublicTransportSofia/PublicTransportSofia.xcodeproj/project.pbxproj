@@ -33,6 +33,12 @@
 		4D769D0028932794001FDC8B /* SUMCServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */; };
 		4D769D042893340E001FDC8B /* JSONTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D769D032893340E001FDC8B /* JSONTiming.swift */; };
 		4D86E93A28970F9200711B26 /* JSONSubwayTimetables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E93928970F9200711B26 /* JSONSubwayTimetables.swift */; };
+		4D86E93E28972FF200711B26 /* StopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E93D28972FF200711B26 /* StopsViewModel.swift */; };
+		4D86E9402897344900711B26 /* LinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E93F2897344900711B26 /* LinesViewModel.swift */; };
+		4D86E9442897A0CC00711B26 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E9432897A0CC00711B26 /* FavouritesViewModel.swift */; };
+		4D86E9462897A1C200711B26 /* StopScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E9452897A1C200711B26 /* StopScheduleViewModel.swift */; };
+		4D86E9482897A86C00711B26 /* LineStopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E9472897A86C00711B26 /* LineStopsViewModel.swift */; };
+		4D86E94A2897AA8F00711B26 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E9492897AA8F00711B26 /* MainViewModel.swift */; };
 		4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8990DF2891C74E00672E63 /* LineStopsView.swift */; };
 		4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */; };
 		4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F9288FF15300A545A1 /* MainView.swift */; };
@@ -89,6 +95,12 @@
 		4D769CFF28932794001FDC8B /* SUMCServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMCServiceMock.swift; sourceTree = "<group>"; };
 		4D769D032893340E001FDC8B /* JSONTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTiming.swift; sourceTree = "<group>"; };
 		4D86E93928970F9200711B26 /* JSONSubwayTimetables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSubwayTimetables.swift; sourceTree = "<group>"; };
+		4D86E93D28972FF200711B26 /* StopsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsViewModel.swift; sourceTree = "<group>"; };
+		4D86E93F2897344900711B26 /* LinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesViewModel.swift; sourceTree = "<group>"; };
+		4D86E9432897A0CC00711B26 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		4D86E9452897A1C200711B26 /* StopScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopScheduleViewModel.swift; sourceTree = "<group>"; };
+		4D86E9472897A86C00711B26 /* LineStopsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsViewModel.swift; sourceTree = "<group>"; };
+		4D86E9492897AA8F00711B26 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4D8990DF2891C74E00672E63 /* LineStopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsView.swift; sourceTree = "<group>"; };
 		4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PublicTransportSofia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaApp.swift; sourceTree = "<group>"; };
@@ -166,6 +178,12 @@
 			children = (
 				4D7106F82895DDA10001A6AE /* FavouritesStore.swift */,
 				4D73035F289673AC00AE4286 /* SUMCDataStore.swift */,
+				4D86E9492897AA8F00711B26 /* MainViewModel.swift */,
+				4D86E9432897A0CC00711B26 /* FavouritesViewModel.swift */,
+				4D86E93D28972FF200711B26 /* StopsViewModel.swift */,
+				4D86E9452897A1C200711B26 /* StopScheduleViewModel.swift */,
+				4D86E93F2897344900711B26 /* LinesViewModel.swift */,
+				4D86E9472897A86C00711B26 /* LineStopsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -403,15 +421,21 @@
 				4D7106F92895DDA10001A6AE /* FavouritesStore.swift in Sources */,
 				ECF0EEF128916366006CC87F /* StopScheduleView.swift in Sources */,
 				4D73E2D728954ADE00343417 /* Favourites.swift in Sources */,
+				4D86E94A2897AA8F00711B26 /* MainViewModel.swift in Sources */,
 				4D86E93A28970F9200711B26 /* JSONSubwayTimetables.swift in Sources */,
+				4D86E93E28972FF200711B26 /* StopsViewModel.swift in Sources */,
 				4D6E8FE228903BED00C6D6B5 /* LineType.swift in Sources */,
 				4D6E8FD228902F5A00C6D6B5 /* FavouritesView.swift in Sources */,
 				4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */,
+				4D86E9402897344900711B26 /* LinesViewModel.swift in Sources */,
 				4D6E8FDE28903AB900C6D6B5 /* Line.swift in Sources */,
+				4D86E9442897A0CC00711B26 /* FavouritesViewModel.swift in Sources */,
+				4D86E9462897A1C200711B26 /* StopScheduleViewModel.swift in Sources */,
 				4D769D042893340E001FDC8B /* JSONTiming.swift in Sources */,
 				4D6E8FE028903BB800C6D6B5 /* LineIdentifier.swift in Sources */,
 				4D38EC002894089A0069E3BE /* FavouritesServiceMock.swift in Sources */,
 				4D769CFA28931BF7001FDC8B /* JSONStops.swift in Sources */,
+				4D86E9482897A86C00711B26 /* LineStopsViewModel.swift in Sources */,
 				4D38EBF8289400A10069E3BE /* FavouritesService.swift in Sources */,
 				4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */,
 				4D6E8FD828902FB900C6D6B5 /* NotificationsView.swift in Sources */,

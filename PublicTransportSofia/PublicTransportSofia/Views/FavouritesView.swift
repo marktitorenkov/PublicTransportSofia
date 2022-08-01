@@ -11,12 +11,13 @@ struct FavouritesView: View {
     
     @EnvironmentObject var favouritesStore: FavouritesStore
     @EnvironmentObject var sumcDataStore: SUMCDataStore
+    @StateObject var viewModel: FavouritesViewModel = FavouritesViewModel()
     
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Stops")) {
-                    ForEach(stops) { stop in
+                    ForEach(viewModel.getStops(favouritesStore, sumcDataStore)) { stop in
                         NavigationLink(destination: StopScheduleView(stop: stop)) {
                             Text("\(stop.name) (\(stop.code))")
                                 .lineLimit(1)
@@ -26,7 +27,7 @@ struct FavouritesView: View {
                     .onMove(perform: favouritesStore.moveStops)
                 }
                 Section(header: Text("Lines")) {
-                    ForEach(lines) { line in
+                    ForEach(viewModel.getLines(favouritesStore, sumcDataStore)) { line in
                         NavigationLink(destination: LineStopsView(line: line)) {
                             Text(line.displayName)
                         }
@@ -38,18 +39,6 @@ struct FavouritesView: View {
             .navigationTitle("Favourites")
             .navigationBarItems(leading: EditButton())
         }
-    }
-    
-    var stops: [Stop] {
-        favouritesStore.favourites.stopCodes
-            .map({ code in sumcDataStore.stops.first(where: { $0.code == code })
-                ?? Stop(id: code, name: "N/A", coordinate: Coordinate()) })
-    }
-    
-    var lines: [Line] {
-        favouritesStore.favourites.lineIds
-            .map({ id in sumcDataStore.lines.first(where: { $0.id == id })
-                ?? Line(id: id, stops: []) })
     }
     
 }

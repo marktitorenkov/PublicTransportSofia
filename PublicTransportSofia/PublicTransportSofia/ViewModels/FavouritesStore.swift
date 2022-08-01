@@ -20,19 +20,19 @@ class FavouritesStore: ObservableObject {
     }
     
     func getStop(code: String) -> Bool {
-        return favourites.getStop(code: code)
+        return favourites.stopCodes.contains(where: { $0 == code })
     }
     
     func getLine(id: LineIdentifier) -> Bool {
-        return favourites.getLine(id: id)
+        return favourites.lineIds.contains(where: { $0 == id })
     }
     
     func toggleStop(code: String) -> Void {
-        favourites.updateStop(code: code, favourited: !favourites.getStop(code: code))
+        updateStop(code: code, favourited: !getStop(code: code))
     }
     
     func toggleLine(id: LineIdentifier) -> Void {
-        favourites.updateLine(id: id, favourited: !favourites.getLine(id: id))
+        updateLine(id: id, favourited: !getLine(id: id))
     }
     
     func deleteStops(indexSet: IndexSet) {
@@ -49,6 +49,26 @@ class FavouritesStore: ObservableObject {
     
     func moveLines(from: IndexSet, to: Int) {
         favourites.lineIds.move(fromOffsets: from, toOffset: to)
+    }
+    
+    func updateStop(code: String, favourited: Bool) -> Void {
+        favourites.stopCodes = updated(collection: favourites.stopCodes, value: code, favourited: favourited)
+    }
+    
+    func updateLine(id: LineIdentifier, favourited: Bool) -> Void {
+        favourites.lineIds = updated(collection: favourites.lineIds, value: id, favourited: favourited)
+    }
+    
+    private func updated<T: Equatable>(collection: [T], value: T, favourited: Bool) -> [T] {
+        var collectionCopy = collection
+        if favourited {
+            if !collectionCopy.contains(value) {
+                collectionCopy.append(value)
+            }
+        } else {
+            collectionCopy.removeAll(where: { $0 == value })
+        }
+        return collectionCopy
     }
     
 }

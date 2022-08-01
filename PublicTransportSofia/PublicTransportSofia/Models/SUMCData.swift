@@ -8,11 +8,6 @@
 import Foundation
 
 struct SUMCData {
-    let lines: [Line]
-    let stops: [Stop]
-    
-    init(stops: [Stop] = [], lines: [Line] = []) {
-        self.stops = stops
-        self.lines = lines
-    }
+    var stops: [Stop] = []
+    var lines: [Line] = []
 }

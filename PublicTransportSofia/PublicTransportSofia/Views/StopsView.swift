@@ -10,31 +10,20 @@ import SwiftUI
 struct StopsView: View {
     
     @EnvironmentObject var sumcDataStore: SUMCDataStore
-
-    @State var searchText = ""
+    @StateObject var viewModel: StopsViewModel = StopsViewModel()
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(searchResults) { stop in
+                ForEach(viewModel.getSearchResults(sumcDataStore)) { stop in
                     NavigationLink(destination: StopScheduleView(stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
                             .lineLimit(1)
                     }
                 }
             }
-            .searchable(text: $searchText)
+            .searchable(text: $viewModel.searchText)
             .navigationTitle("Stops")
-        }
-    }
-    
-    var searchResults: [Stop] {
-        if searchText.isEmpty {
-            return sumcDataStore.stops
-        } else {
-            return sumcDataStore.stops.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText) || $0.code.contains(searchText)
-            }
         }
     }
     

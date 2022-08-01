@@ -11,13 +11,12 @@ struct LineStopsView: View {
     
     @EnvironmentObject var sumcDataStore: SUMCDataStore
     @EnvironmentObject var favouritesStore: FavouritesStore
-    
+    @StateObject var viewModel: LineStopsViewModel = LineStopsViewModel()
     let line: Line
-    @State var direction = 0
     
     var body: some View {
         VStack {
-            Picker("Direction", selection: $direction) {
+            Picker("Direction", selection: $viewModel.direction) {
                 ForEach(Array(line.stops.enumerated()), id: \.0) { i, dir in
                     Text("\(dir.first?.name ?? "") - \(dir.last?.name ?? "")").tag(i)
                 }
@@ -25,7 +24,7 @@ struct LineStopsView: View {
             .pickerStyle(.segmented)
             .padding()
             List {
-                ForEach(directonStops) { stop in
+                ForEach(viewModel.getDirectonStops(line)) { stop in
                     NavigationLink(destination: StopScheduleView(stop: stop)) {
                         Text("\(stop.name) (\(stop.code))")
                             .lineLimit(1)
@@ -37,12 +36,6 @@ struct LineStopsView: View {
         .navigationBarItems(trailing: Button(action: { favouritesStore.toggleLine(id: line.id) }) {
             Image(systemName: favouritesStore.getLine(id: line.id) ? "star.fill" :  "star")
         })
-    }
-    
-    var directonStops: [Stop] {
-        return line.stops.indices.contains(direction)
-        ? line.stops[direction]
-        : []
     }
     
 }
