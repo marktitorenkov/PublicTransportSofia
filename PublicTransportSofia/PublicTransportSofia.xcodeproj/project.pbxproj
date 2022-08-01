@@ -39,6 +39,7 @@
 		4D86E9462897A1C200711B26 /* StopScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E9452897A1C200711B26 /* StopScheduleViewModel.swift */; };
 		4D86E9482897A86C00711B26 /* LineStopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E9472897A86C00711B26 /* LineStopsViewModel.swift */; };
 		4D86E94A2897AA8F00711B26 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E9492897AA8F00711B26 /* MainViewModel.swift */; };
+		4D86E94C2897BBA100711B26 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86E94B2897BBA100711B26 /* LocationManager.swift */; };
 		4D8990E02891C74E00672E63 /* LineStopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8990DF2891C74E00672E63 /* LineStopsView.swift */; };
 		4DEDE6F8288FF15300A545A1 /* PublicTransportSofiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */; };
 		4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDE6F9288FF15300A545A1 /* MainView.swift */; };
@@ -101,6 +102,7 @@
 		4D86E9452897A1C200711B26 /* StopScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopScheduleViewModel.swift; sourceTree = "<group>"; };
 		4D86E9472897A86C00711B26 /* LineStopsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsViewModel.swift; sourceTree = "<group>"; };
 		4D86E9492897AA8F00711B26 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		4D86E94B2897BBA100711B26 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4D8990DF2891C74E00672E63 /* LineStopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStopsView.swift; sourceTree = "<group>"; };
 		4DEDE6F4288FF15300A545A1 /* PublicTransportSofia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PublicTransportSofia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEDE6F7288FF15300A545A1 /* PublicTransportSofiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportSofiaApp.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				4D7106F82895DDA10001A6AE /* FavouritesStore.swift */,
 				4D73035F289673AC00AE4286 /* SUMCDataStore.swift */,
+				4D86E94B2897BBA100711B26 /* LocationManager.swift */,
 				4D86E9492897AA8F00711B26 /* MainViewModel.swift */,
 				4D86E9432897A0CC00711B26 /* FavouritesViewModel.swift */,
 				4D86E93D28972FF200711B26 /* StopsViewModel.swift */,
@@ -438,6 +441,7 @@
 				4D86E9482897A86C00711B26 /* LineStopsViewModel.swift in Sources */,
 				4D38EBF8289400A10069E3BE /* FavouritesService.swift in Sources */,
 				4D769CFE289326FC001FDC8B /* SUMCServiceProtocol.swift in Sources */,
+				4D86E94C2897BBA100711B26 /* LocationManager.swift in Sources */,
 				4D6E8FD828902FB900C6D6B5 /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +606,7 @@
 				DEVELOPMENT_TEAM = B69T59YF8G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to show nearest stops";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -631,6 +636,7 @@
 				DEVELOPMENT_TEAM = B69T59YF8G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to show nearest stops";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

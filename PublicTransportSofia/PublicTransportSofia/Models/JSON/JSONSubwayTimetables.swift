@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias JSONSubwayTimetablesArrivals = [String : [String: [String]]]
+typealias JSONSubwayTimetablesArrivals = [String : [String : [String]]]
 
 struct JSONSubwayTimetables: Decodable {
     let weekday: JSONSubwayTimetablesArrivals

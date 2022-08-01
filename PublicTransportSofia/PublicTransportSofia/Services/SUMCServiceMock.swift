@@ -13,8 +13,9 @@ class SUMCServiceMock: SUMCServiceProtocol {
         stops: [
             Stop(id: "2224", name: "Община младост", coordinate: Coordinate(x: 0, y: 0)),
             Stop(id: "0012", name: "Test 0012", coordinate: Coordinate(x: 1, y: 1)),
-            Stop(id: "0004", name: "Test 004", coordinate: Coordinate(x: 0, y: 0)),
-            Stop(id: "0005", name: "Test 005", coordinate: Coordinate(x: 0, y: 0)),
+            Stop(id: "0004", name: "Test 0004", coordinate: Coordinate(x: 0, y: 0)),
+            Stop(id: "0005", name: "Test 0005", coordinate: Coordinate(x: 0, y: 0)),
+            Stop(id: "0002", name: "ZZZZ 9999", coordinate: Coordinate(x: 0, y: 0)),
         ],
         lines: [
             Line(id: LineIdentifier(name: "305", type: .bus), stops: [

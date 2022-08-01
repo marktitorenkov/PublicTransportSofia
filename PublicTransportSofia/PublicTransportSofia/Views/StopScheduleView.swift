@@ -16,9 +16,11 @@ struct StopScheduleView: View {
     
     var body: some View {
         VStack {
-            Text(stop.name)
-                .padding()
-                .multilineTextAlignment(.center)
+            Link(destination: viewModel.getMapUrl(stop: stop)) {
+                Text(stop.name)
+                    .padding()
+                    .multilineTextAlignment(.center)
+            }
             if viewModel.lineSchedulesLoaded {
                 List {
                     ForEach(viewModel.lineSchedules) { schedule in
