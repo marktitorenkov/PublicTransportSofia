@@ -17,38 +17,57 @@ class StopsViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var sort = Sort.byCode
     
-    func getSearchResults(_ sumcDataStore: SUMCDataStore, _ locationManager: LocationManager) -> [StopWithDistance] {
-        if let sortFunction =  {
-            return getFilteredResults(sumcDataStore)
-                .map(calculateStopDistance(locationManager.lastLocation))
-                .sorted(by: getSortFunction())
+    func formatDistance(distance: Double) -> String {
+        if (distance > 10_000) {
+            return String(format: "%.0fkm", distance / 1000)
         }
-        return []
+        if (distance > 1000) {
+            return String(format: "%.1fkm", distance / 1000)
+        }
+        return String(format: "%.0fm", distance)
     }
-        
-    private func calculateStopDistance(_ currentLocation: CLLocation?) -> ((Stop) -> StopWithDistance) {
-        return { a in
-            guard let currentLocation = currentLocation else {
-                return StopWithDistance(stop: a, distance: nil)
+    
+    func getSearchResults(_ sumcDataStore: SUMCDataStore, _ locationManager: LocationManager) -> [StopWithDistance] {
+        let location = tryGetLocation(locationManager)
+        if sort == .byLocation && location == nil {
+            return []
+        }
+        return getFilteredResults(sumcDataStore)
+            .map(getTransformFunction(location))
+            .sorted(by: getSortFunction())
+    }
+    
+    func tryGetLocation(_ locationManager: LocationManager) -> CLLocation? {
+        if sort == .byLocation {
+            locationManager.startUpdatingLocation()
+            if locationManager.locationStatus == .notDetermined {
+                locationManager.requestWhenInUseAuthorization()
+            } else {
+                return locationManager.lastLocation
             }
-            
-            let distance = CLLocation(latitude: a.coordinate.lat, longitude: a.coordinate.lon).distance(from: currentLocation)
-            
-            let stopWithDistance = StopWithDistance(stop: a, distance: distance)
-            return stopWithDistance
+        } else {
+            locationManager.stopUpdatingLocation()
+        }
+        return nil
+    }
+    
+    private func getTransformFunction(_ currentLocation: CLLocation?) -> ((Stop) -> StopWithDistance) {
+        return { stop in
+            let getDistance = { () -> Double in
+                guard let currentLocation = currentLocation else {
+                    return 0
+                }
+                return CLLocation(latitude: stop.coordinate.lat, longitude: stop.coordinate.lon).distance(from: currentLocation)
+            }
+            return StopWithDistance(stop: stop, distance: getDistance())
         }
     }
     
-    private func getSortFunction() -> ((StopWithDistance, StopWithDistance) -> Bool)? {
+    private func getSortFunction() -> ((StopWithDistance, StopWithDistance) -> Bool) {
         switch sort {
-        case .byLocation: return { a, b in
-            if let aDistance = a.distance, let bDistance = b.distance {
-                return aDistance < bDistance
-            }
-            return false
-        }
-        case .byName: return { a, b in a.stop.name.localizedCompare(b.stop.name) == .orderedAscending }
         case .byCode: return { a, b in a.stop.code.compare(b.stop.code) == .orderedAscending }
+        case .byName: return { a, b in a.stop.name.localizedCompare(b.stop.name) == .orderedAscending }
+        case .byLocation: return { a, b in a.distance < b.distance }
         }
     }
     

@@ -16,17 +16,18 @@ struct StopsView: View {
     var body: some View {
         NavigationView {
             List {
-//                Section("Debug") {
-//                    Button("Request", action: { locationManager.requestWhenInUseAuthorization() })
-//                    Button("Start", action: { locationManager.startUpdatingLocation() })
-//                    Button("Stop", action: { locationManager.stopUpdatingLocation() })
-//                    Text("\(locationManager.locationStatus?.rawValue ?? 0)")
-//                    Text("\(locationManager.lastLocation?.coordinate.latitude ?? 0) \(locationManager.lastLocation?.coordinate.longitude ?? 0)")
-//                }
                 ForEach(viewModel.getSearchResults(sumcDataStore, locationManager)) { stop in
-                    NavigationLink(destination: StopScheduleView(stop: stop)) {
-                        Text("\(stop.name) (\(stop.code))")
-                            .lineLimit(1)
+                    NavigationLink(destination: StopScheduleView(stop: stop.stop)) {
+                        HStack {
+                            Text("\(stop.stop.name) (\(stop.stop.code))")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .lineLimit(1)
+                            if viewModel.sort == .byLocation {
+                                Text(viewModel.formatDistance(distance: stop.distance))
+                                    .foregroundColor(Color(UIColor.systemGray))
+                                    .frame(alignment: .trailing)
+                            }
+                        }
                     }
                 }
             }
