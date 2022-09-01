@@ -27,7 +27,7 @@ class StopsViewModel: ObservableObject {
         return String(format: "%.0fm", distance)
     }
     
-    func getSearchResults(_ sumcDataStore: SumcDataStore, _ locationManager: LocationManager) -> [StopWithDistance] {
+    func getSearchResults(_ sumcDataStore: SumcDataStore, _ locationManager: LocationManagerProtocol) -> [StopWithDistance] {
         let location = tryGetLocation(locationManager)
         if sort == .byLocation && location == nil {
             return []
@@ -37,7 +37,7 @@ class StopsViewModel: ObservableObject {
             .sorted(by: getSortFunction())
     }
     
-    func tryGetLocation(_ locationManager: LocationManager) -> CLLocation? {
+    private func tryGetLocation(_ locationManager: LocationManagerProtocol) -> CLLocation? {
         if sort == .byLocation {
             locationManager.startUpdatingLocation()
             if locationManager.locationStatus == .notDetermined {

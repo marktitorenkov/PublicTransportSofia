@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Line: Identifiable {
+struct Line: Identifiable, Equatable {
     let id: LineIdentifier
     let displayName: String
     let stops: [[Stop]]

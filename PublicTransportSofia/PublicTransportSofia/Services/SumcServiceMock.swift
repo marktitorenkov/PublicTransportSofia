@@ -8,6 +8,7 @@
 import Foundation
 
 class SumcServiceMock: SumcServiceProtocol {
+    var fetchScheduleCalledTimes = 0
     
     private var data = SumcData(
         stops: [
@@ -41,7 +42,8 @@ class SumcServiceMock: SumcServiceProtocol {
     func fetchStaticData() async throws -> SumcData { self.data }
     
     func fetchSchedule(sumcData: SumcData, stopCode: String) async -> [LineSchedule] {
-        [
+        fetchScheduleCalledTimes += 1
+        return [
             LineSchedule(id: LineIdentifier(name: "305", type: .bus), arrivals: [Date() + 100, Date() + 5 * 60, Date() + 15 * 60]),
             LineSchedule(id: LineIdentifier(name: "10", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),
             LineSchedule(id: LineIdentifier(name: "15", type: .tram), arrivals: [Date() + 50, Date() + 3 * 60]),

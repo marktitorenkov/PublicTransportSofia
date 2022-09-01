@@ -54,6 +54,12 @@
 		EC588C83289811F500885F91 /* StopWithDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC588C82289811F500885F91 /* StopWithDistance.swift */; };
 		ECF0EEF128916366006CC87F /* StopScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF0EEF028916366006CC87F /* StopScheduleView.swift */; };
 		ECF3579B289343560066A6C3 /* MainLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF3579A289343560066A6C3 /* MainLoadingView.swift */; };
+		ECF7395628C00D68001821EB /* SumcServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7395528C00D68001821EB /* SumcServiceTests.swift */; };
+		ECF7395828C0AF24001821EB /* SumcDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7395728C0AF24001821EB /* SumcDataStoreTests.swift */; };
+		ECF7395A28C0B255001821EB /* StopsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7395928C0B255001821EB /* StopsViewModelTests.swift */; };
+		ECF7395C28C0B4B3001821EB /* LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7395B28C0B4B3001821EB /* LocationManagerProtocol.swift */; };
+		ECF7395E28C0B5E2001821EB /* LocationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7395D28C0B5E2001821EB /* LocationManagerMock.swift */; };
+		ECF7396028C0BBFC001821EB /* StopScheduleViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7395F28C0BBFB001821EB /* StopScheduleViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +130,12 @@
 		EC588C82289811F500885F91 /* StopWithDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWithDistance.swift; sourceTree = "<group>"; };
 		ECF0EEF028916366006CC87F /* StopScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopScheduleView.swift; sourceTree = "<group>"; };
 		ECF3579A289343560066A6C3 /* MainLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoadingView.swift; sourceTree = "<group>"; };
+		ECF7395528C00D68001821EB /* SumcServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcServiceTests.swift; sourceTree = "<group>"; };
+		ECF7395728C0AF24001821EB /* SumcDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumcDataStoreTests.swift; sourceTree = "<group>"; };
+		ECF7395928C0B255001821EB /* StopsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsViewModelTests.swift; sourceTree = "<group>"; };
+		ECF7395B28C0B4B3001821EB /* LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerProtocol.swift; sourceTree = "<group>"; };
+		ECF7395D28C0B5E2001821EB /* LocationManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerMock.swift; sourceTree = "<group>"; };
+		ECF7395F28C0BBFB001821EB /* StopScheduleViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopScheduleViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +202,7 @@
 				4D7106F82895DDA10001A6AE /* FavouritesStore.swift */,
 				4D73035F289673AC00AE4286 /* SumcDataStore.swift */,
 				4D86E94B2897BBA100711B26 /* LocationManager.swift */,
+				ECF7395B28C0B4B3001821EB /* LocationManagerProtocol.swift */,
 				4D86E9492897AA8F00711B26 /* MainViewModel.swift */,
 				4D86E9432897A0CC00711B26 /* FavouritesViewModel.swift */,
 				4D86E93D28972FF200711B26 /* StopsViewModel.swift */,
@@ -274,6 +287,11 @@
 			isa = PBXGroup;
 			children = (
 				4DEDE708288FF15500A545A1 /* PublicTransportSofiaTests.swift */,
+				ECF7395528C00D68001821EB /* SumcServiceTests.swift */,
+				ECF7395728C0AF24001821EB /* SumcDataStoreTests.swift */,
+				ECF7395928C0B255001821EB /* StopsViewModelTests.swift */,
+				ECF7395D28C0B5E2001821EB /* LocationManagerMock.swift */,
+				ECF7395F28C0BBFB001821EB /* StopScheduleViewModelTests.swift */,
 			);
 			path = PublicTransportSofiaTests;
 			sourceTree = "<group>";
@@ -420,6 +438,7 @@
 				4D6E8FDA2890377700C6D6B5 /* Stop.swift in Sources */,
 				4DEDE6FA288FF15300A545A1 /* MainView.swift in Sources */,
 				4D769CF528930E80001FDC8B /* SumcService.swift in Sources */,
+				ECF7395C28C0B4B3001821EB /* LocationManagerProtocol.swift in Sources */,
 				4D769D0028932794001FDC8B /* SumcServiceMock.swift in Sources */,
 				4D6E8FE428903E5600C6D6B5 /* LineSchedule.swift in Sources */,
 				4D730360289673AC00AE4286 /* SumcDataStore.swift in Sources */,
@@ -466,7 +485,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECF7395A28C0B255001821EB /* StopsViewModelTests.swift in Sources */,
 				4DEDE709288FF15500A545A1 /* PublicTransportSofiaTests.swift in Sources */,
+				ECF7396028C0BBFC001821EB /* StopScheduleViewModelTests.swift in Sources */,
+				ECF7395E28C0B5E2001821EB /* LocationManagerMock.swift in Sources */,
+				ECF7395828C0AF24001821EB /* SumcDataStoreTests.swift in Sources */,
+				ECF7395628C00D68001821EB /* SumcServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

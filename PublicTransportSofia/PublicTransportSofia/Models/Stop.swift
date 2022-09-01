@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Stop: Identifiable {
+struct Stop: Identifiable, Equatable {
+    static func == (lhs: Stop, rhs: Stop) -> Bool {
+        lhs.id == rhs.id && lhs.name == rhs.name && lhs.coordinate.x == rhs.coordinate.x && lhs.coordinate.y == rhs.coordinate.y
+    }
+    
     let id: String
     var code: String { id }
     let name: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LineSchedule: Identifiable {
+struct LineSchedule: Identifiable, Equatable {
     let id: LineIdentifier
     var line: LineIdentifier { id }
     let displayName: String
@@ -17,5 +17,14 @@ struct LineSchedule: Identifiable {
         self.id = id
         self.displayName = displayName ?? id.name
         self.arrivals = arrivals
+    }
+    
+    static func == (lhs: LineSchedule, rhs: LineSchedule) -> Bool {
+        let a = lhs.id == rhs.id
+        let b = lhs.arrivals.elementsEqual(rhs.arrivals) { a, b in
+            Calendar.current.component(.hour, from: a) == Calendar.current.component(.hour, from: b) && Calendar.current.component(.minute, from: a) == Calendar.current.component(.minute, from: b)
+        }
+        
+        return a && b
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StopWithDistance: Identifiable {
+struct StopWithDistance: Identifiable, Equatable {
     var id: String { stop.id }
     let stop: Stop
     let distance: Double
